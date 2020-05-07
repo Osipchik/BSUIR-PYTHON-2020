@@ -1,0 +1,34 @@
+html, body, main{
+    height: 100vh;
+    font-family: Tahoma, Arial, 'Nimbus Sans L', sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 30%;
+    min-width: 68px;
+}
+
+main {
+    margin-left: 31%;
+    border-left: 1px solid #E1E8ED;
+    border-right: 1px solid #E1E8ED;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (max-width: 720px) {
+    header{
+        width: 128px
+    }
+    .menu{
+        position: absolute;
+        width: 88px;
+    }
+
+    main{
+        margin-left: 88px!important;
+    }
+}

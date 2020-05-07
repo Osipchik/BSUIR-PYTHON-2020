@@ -1,0 +1,42 @@
+textarea{
+    width: 100%;
+    min-height: 16px;
+    max-height: 300px;
+    border: none!important;
+    box-shadow: none!important;
+    overflow: auto!important;
+    flex: 1;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+textarea::-moz-focus-inner{
+    border: 0;
+}
+
+.hr-textarea {
+    border: 0!important;
+    border-top: 10px solid rgba(0,0,0,.1) !important;
+}
+
+.parent{
+    display: flex;
+}
+
+.user-icon{
+    display: block;
+}
+
+.user-icon:hover{
+    cursor: pointer;
+    -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+.btn-twit {
+    color: white;
+    padding: 0.3rem 0.7rem!important;
+}

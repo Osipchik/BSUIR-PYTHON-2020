@@ -1,0 +1,22 @@
+{% extends 'accounts/_LayoutView.html' %}
+{% block content %}
+    <form action="{% url 'accounts:login' %}" method="post">
+        {% csrf_token %}
+]        <div class="form-group">
+            <label for="username">User name</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            {{ form.password }}
+            {{ form.password.errors }}
+        </div>
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="btn btn-primary px-auto" value="Login">
+        </div>
+    </form>
+    <div class="text-center mt-3">
+        <p>Don't have an account? <a href="{% url 'accounts:signup' %}" class="">Sign Up!</a></p>
+    </div>
+{% endblock %}

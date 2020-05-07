@@ -1,0 +1,28 @@
+{% load static %}
+{% block content  %}
+    <link rel="stylesheet" href="{% static 'css/textarea.css' %}" type='text/css'>
+
+    {% if user.is_authenticated  %}
+        <div id="create-twit">
+            <form method="post" action="{% url 'create_twit' %}">
+                {% csrf_token %}
+                <div class="m-3 parent">
+                    <div class="h-100 ">
+                        <img src="//placehold.it/49" class="rounded-circle user-icon transition" />
+                    </div>
+                    <div class="px-3 w-100">
+                        {{ form }}
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-twit " value="Твитнуть">
+            </form>
+        </div>
+    {% else %}
+        <a class="btn" href="{% url 'accounts:login' %}">Login</a>
+    {% endif %}
+    <hr class="hr-textarea">
+
+    <script src="{% static 'js/textarea.js' %}"></script>
+{% endblock %}

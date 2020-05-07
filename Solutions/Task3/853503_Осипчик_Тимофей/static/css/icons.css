@@ -1,0 +1,36 @@
+.font-ico{
+    font-size: 24px !important;
+}
+
+.twitter{
+    color: #1DA1F2;
+    font-size: 30px;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.twitter:hover{
+    text-decoration: none;
+    background-color: #e3f1fc;
+    color: #1DA1F2;
+    border-radius: 50px;
+}
+
+.transition{
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.btn {
+    background-color: #1DA1F2!important;
+    border-color: #1DA1F2!important;
+    border-radius: 50px!important;
+    padding: 0.5rem 2rem!important;
+}
+
+.btn:hover{
+    background-color: #0288D1!important;
+    border-color: #0288D1!important;
+}

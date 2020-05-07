@@ -1,0 +1,26 @@
+{% block content  %}
+    <div class="transition twit-block pt-3">
+        <div class="mx-3 row d-flex">
+            <div class="">
+                <img src="//placehold.it/49" class="rounded-circle user-icon transition" />
+            </div>
+            <div class="px-1 flex-grow-1">
+                <div>
+                    <small class="pl-3 text-muted">{{ twit.created_date }}</small>
+                </div>
+                <div class="px-3">
+                    {{ twit.content }}
+                </div>
+                <div class="row col-6 justify-content-between pl-5">
+                    {% include 'shared/create_comment.html' with twit=twit form=form%}
+{#        data-id="{{ twit.id }}"            <i class="far fa-heart"></i>#}
+                    <li data-id="{{ twit.id }}" data-type="article" data-action="like" class="far fa-heart">
+                        <span data-count="like">{{ twit.likes.count }}</span>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'twit' id=twit.id %}"></a>
+        <hr>
+    </div>
+{% endblock %}

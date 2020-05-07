@@ -1,0 +1,191 @@
+html, body, main{
+    height: 100vh;
+    font-family: Tahoma, Arial, 'Nimbus Sans L', sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 30%;
+    min-width: 68px;
+}
+
+main {
+    margin-left: 31%;
+    border-left: 1px solid #E1E8ED;
+    border-right: 1px solid #E1E8ED;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+p {
+    margin: 0!important;
+}
+
+.menu{
+    position: relative;
+    width: 235px;
+    min-width: 88px!important;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 0!important;
+}
+
+.menu-button{
+    border: none;
+    background: inherit;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+    height: 3rem;
+}
+
+.px-05{
+    padding: 0 5px 0 5px !important;
+}
+
+.px-20{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.content{
+    max-width: 40rem;
+}
+
+.menu-link{
+    font-weight: 600;
+    color: #212121;
+    text-decoration: none;
+    width: 100%;
+}
+
+.menu-link:hover{
+    text-decoration: none;
+    background-color: #e3f1fc;
+    color: #1DA1F2;
+}
+
+.meu-link-active{
+    text-decoration: none;
+    color: #1DA1F2;
+}
+
+.twit-btn{
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    background: inherit;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 1.2rem;
+    color: #FFF;
+    background-color: #1DA1F2;
+}
+
+.twit-btn:hover{
+    color: #FFF;
+    background-color: #0288D1;
+    text-decoration: none;
+}
+
+.ico{
+    margin-top: 2px;
+}
+
+.btn-text{
+    margin: 0 15px;
+}
+
+.user-dropup{
+    padding: 0 0 0 1rem;
+    flex: 1;
+}
+
+.user {
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.user:hover {
+    background-color: #e3f1fc;
+    cursor: pointer;
+}
+
+.btn-head {
+    color: #1DA1F2;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 4px 9px!important;
+    font-size: 20px;
+}
+
+.btn-head:hover {
+    background-color: #e3f1fc;
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+@media (max-width: 720px) {
+    header{
+        width: 128px
+    }
+
+    .user {
+        padding: 4px 20px!important;
+    }
+
+    .user-dropup {
+        display: none;
+    }
+
+    .menu{
+        position: absolute;
+        width: 88px;
+    }
+
+    .btn-text{
+        display: none;
+    }
+
+    .menu-button{
+        width: 3.2rem;
+        height: 3.2rem;
+        padding: 10px!important;
+    }
+
+    .row{
+        margin: auto!important;
+        text-align: center!important;
+    }
+
+    main{
+        margin-left: 88px!important;
+    }
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+.user-p{
+    margin-bottom: 0!important;
+    font-size: 12px!important;
+}
+
+.twit-block:hover{
+    background-color: #F5F8FA!important;
+    cursor: pointer;
+}
+
+hr{
+    padding-bottom: 0!important;
+    margin-bottom: 0!important;
+}
+
+.btn-outline {
+
+}

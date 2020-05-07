@@ -1,0 +1,28 @@
+{% extends 'shared/_LayoutView.html' %}
+{% block content %}
+    <div>
+        <div class="row mx-auto">
+            <a href="#" class="transition btn-head mx-3 my-auto">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div >
+                <p><strong>{{ user.first_name }}</strong></p>
+                <small class="text-muted"> Твиты Твитов Твитов"></small>
+            </div>
+        </div>
+        <div>
+            {% include 'shared/manage_profile.html' %}
+        </div>
+    </div>
+
+    <div>
+        <p class="text-muted"><small>{{ user.date_joined|date:"F Y" }}</small></p>
+        <p>@{{ user.username }}</p>
+        {{ user.user_profile.description }}
+    </div>
+
+    {% for i in user.twits.all %}
+        {% include 'twit.html' with twit=i %}
+    {% endfor %}
+
+{% endblock %}

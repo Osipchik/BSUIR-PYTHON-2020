@@ -1,0 +1,18 @@
+{% extends 'shared/_LayoutView.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="w-100 border-bottom mt-1">
+        <p class="h5 mb-2 ml-3"><strong>Главная</strong></p>
+    </div>
+
+    {% include 'shared/CreateTwit.html' with form=form %}
+
+    <div class="">
+        {% for i in twits %}
+            {% include 'twit.html' with twit=i %}
+        {% endfor %}
+    </div>
+
+     <script src="{% static 'js/textarea.js' %}"></script>
+{% endblock %}

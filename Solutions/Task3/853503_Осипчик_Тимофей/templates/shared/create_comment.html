@@ -1,0 +1,56 @@
+{% block content  %}
+
+    {% if user.is_authenticated  %}
+        <div class="row btn-comment">
+            <i class="far fa-comment"  data-type="article" data-toggle="modal" data-target="#exampleModalCenter">
+                222
+            </i>
+        </div>
+    {% else %}
+        <a href="{% url 'accounts:login' %}" class="btn-comment">
+             <i class="far fa-comment btn-comment" data-toggle="modal" data-target="#exampleModalCenter"></i>
+        </a>
+    {% endif %}
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+            </div>
+          </div>
+    </div>
+{#    {% if user.is_authenticated  %}#}
+{#        <div id="create-twit">#}
+{#            <form method="post" action="{% url 'create_twit' %}">#}
+{#                {% csrf_token %}#}
+{#                <div class="m-3 parent">#}
+{#                    <div class="h-100 ">#}
+{#                        <img src="//placehold.it/49" class="rounded-circle user-icon transition" />#}
+{#                    </div>#}
+{#                    <div class="px-3 w-100">#}
+{#                        {{ form }}#}
+{#                        <div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <input type="submit" class="btn btn-twit " value="Твитнуть">#}
+{#            </form>#}
+{#        </div>#}
+{#    {% else %}#}
+{#        <a class="btn" href="{% url 'accounts:login' %}">Login</a>#}
+{#    {% endif %}#}
+{#    <hr class="hr-textarea">#}
+
+{% endblock %}
