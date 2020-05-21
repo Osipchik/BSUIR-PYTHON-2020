@@ -6,6 +6,8 @@ textarea{
     box-shadow: none!important;
     overflow: auto!important;
     flex: 1;
+    font-size: 20px!important;
+    padding: 0!important;
 }
 
 textarea:focus{
@@ -16,6 +18,18 @@ textarea::-moz-focus-inner{
     border: 0;
 }
 
+::placeholder {
+  color: #BDBDBD!important;
+}
+
+:-ms-input-placeholder {
+  color: #BDBDBD!important;
+}
+
+::-ms-input-placeholder {
+  color: #BDBDBD!important;
+}
+
 .hr-textarea {
     border: 0!important;
     border-top: 10px solid rgba(0,0,0,.1) !important;
@@ -23,17 +37,6 @@ textarea::-moz-focus-inner{
 
 .parent{
     display: flex;
-}
-
-.user-icon{
-    display: block;
-}
-
-.user-icon:hover{
-    cursor: pointer;
-    -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
 }
 
 .btn-twit {
