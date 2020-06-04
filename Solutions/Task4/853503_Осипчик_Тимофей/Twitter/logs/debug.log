@@ -1,0 +1,495 @@
+DEBUG 2020-05-28 12:55:01,998 schema 16624 16500 CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,023 schema 16624 16500 CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,029 schema 16624 16500 ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params ())
+DEBUG 2020-05-28 12:55:02,038 schema 16624 16500 ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:02,042 schema 16624 16500 ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params ())
+DEBUG 2020-05-28 12:55:02,049 schema 16624 16500 CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,058 schema 16624 16500 CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 12:55:02,066 schema 16624 16500 CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,075 schema 16624 16500 CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,083 schema 16624 16500 CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,088 schema 16624 16500 CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,094 schema 16624 16500 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params ())
+DEBUG 2020-05-28 12:55:02,097 schema 16624 16500 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,101 schema 16624 16500 CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:02,105 schema 16624 16500 CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:02,108 schema 16624 16500 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params ())
+DEBUG 2020-05-28 12:55:02,111 schema 16624 16500 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,114 schema 16624 16500 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,115 schema 16624 16500 CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params ())
+DEBUG 2020-05-28 12:55:02,118 schema 16624 16500 CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 12:55:02,121 schema 16624 16500 CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:02,124 schema 16624 16500 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params ())
+DEBUG 2020-05-28 12:55:02,127 schema 16624 16500 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,130 schema 16624 16500 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,130 schema 16624 16500 CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,133 schema 16624 16500 CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params ())
+DEBUG 2020-05-28 12:55:02,136 schema 16624 16500 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params ())
+DEBUG 2020-05-28 12:55:02,139 schema 16624 16500 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,141 schema 16624 16500 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,142 schema 16624 16500 CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,145 schema 16624 16500 CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 12:55:02,154 schema 16624 16500 CREATE TABLE "Twitter_tweet" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "image" varchar(100) NOT NULL, "created_date" timestamp with time zone NOT NULL, "is_deleted" boolean NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,169 schema 16624 16500 CREATE TABLE "Twitter_like" ("id" serial NOT NULL PRIMARY KEY, "object_id" integer NOT NULL CHECK ("object_id" >= 0), "content_type_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,180 schema 16624 16500 CREATE TABLE "Twitter_comment" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "created_date" timestamp with time zone NOT NULL, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,194 schema 16624 16500 CREATE TABLE "Twitter_bookmark" ("id" serial NOT NULL PRIMARY KEY, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,200 schema 16624 16500 ALTER TABLE "Twitter_tweet" ADD CONSTRAINT "Twitter_tweet_user_id_6c8d14df_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,202 schema 16624 16500 CREATE INDEX "Twitter_tweet_created_date_4a0e7635" ON "Twitter_tweet" ("created_date"); (params ())
+DEBUG 2020-05-28 12:55:02,206 schema 16624 16500 CREATE INDEX "Twitter_tweet_user_id_6c8d14df" ON "Twitter_tweet" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,209 schema 16624 16500 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_content_type_id_bb8c1020_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,210 schema 16624 16500 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_user_id_f4dc8e13_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,211 schema 16624 16500 CREATE INDEX "Twitter_like_content_type_id_bb8c1020" ON "Twitter_like" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:02,223 schema 16624 16500 CREATE INDEX "Twitter_like_user_id_f4dc8e13" ON "Twitter_like" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,225 schema 16624 16500 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_tweet_id_9521ae88_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,227 schema 16624 16500 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_user_id_5242b4d7_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,228 schema 16624 16500 CREATE INDEX "Twitter_comment_created_date_1fe00dc6" ON "Twitter_comment" ("created_date"); (params ())
+DEBUG 2020-05-28 12:55:02,231 schema 16624 16500 CREATE INDEX "Twitter_comment_tweet_id_9521ae88" ON "Twitter_comment" ("tweet_id"); (params ())
+DEBUG 2020-05-28 12:55:02,234 schema 16624 16500 CREATE INDEX "Twitter_comment_user_id_5242b4d7" ON "Twitter_comment" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,237 schema 16624 16500 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_tweet_id_c8d8632c_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,239 schema 16624 16500 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_user_id_0129133d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,240 schema 16624 16500 CREATE INDEX "Twitter_bookmark_tweet_id_c8d8632c" ON "Twitter_bookmark" ("tweet_id"); (params ())
+DEBUG 2020-05-28 12:55:02,244 schema 16624 16500 CREATE INDEX "Twitter_bookmark_user_id_0129133d" ON "Twitter_bookmark" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,255 schema 16624 16500 CREATE TABLE "accounts_userprofile" ("id" serial NOT NULL PRIMARY KEY, "Verified" boolean NOT NULL, "is_official" boolean NOT NULL, "description" varchar(160) NOT NULL, "image" varchar(100) NOT NULL, "header_image" varchar(100) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 12:55:02,272 schema 16624 16500 CREATE TABLE "accounts_contact" ("id" serial NOT NULL PRIMARY KEY, "created" timestamp with time zone NOT NULL, "user_from_id" integer NOT NULL, "user_to_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,278 schema 16624 16500 ALTER TABLE "accounts_userprofile" ADD CONSTRAINT "accounts_userprofile_user_id_92240672_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,279 schema 16624 16500 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_from_id_d88fc381_fk_auth_user_id" FOREIGN KEY ("user_from_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,280 schema 16624 16500 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_to_id_16d11cce_fk_auth_user_id" FOREIGN KEY ("user_to_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,281 schema 16624 16500 CREATE INDEX "accounts_contact_created_5be07012" ON "accounts_contact" ("created"); (params ())
+DEBUG 2020-05-28 12:55:02,285 schema 16624 16500 CREATE INDEX "accounts_contact_user_from_id_d88fc381" ON "accounts_contact" ("user_from_id"); (params ())
+DEBUG 2020-05-28 12:55:02,287 schema 16624 16500 CREATE INDEX "accounts_contact_user_to_id_16d11cce" ON "accounts_contact" ("user_to_id"); (params ())
+DEBUG 2020-05-28 12:55:02,300 schema 16624 16500 CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,310 schema 16624 16500 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,311 schema 16624 16500 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,312 schema 16624 16500 CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:02,315 schema 16624 16500 CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:02,345 schema 16624 16500 ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255); (params [])
+DEBUG 2020-05-28 12:55:02,353 schema 16624 16500 ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254); (params [])
+DEBUG 2020-05-28 12:55:02,368 schema 16624 16500 ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:02,387 schema 16624 16500 ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:02,403 schema 16624 16500 ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:02,410 schema 16624 16500 ALTER TABLE "auth_group" ALTER COLUMN "name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:02,439 schema 16624 16500 CREATE TABLE "e_mail_mail" ("id" serial NOT NULL PRIMARY KEY, "topic" varchar(120) NOT NULL, "text" text NOT NULL, "date" date NOT NULL, "time" time NOT NULL, "check_send" boolean NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,447 schema 16624 16500 CREATE TABLE "e_mail_mail_users" ("id" serial NOT NULL PRIMARY KEY, "mail_id" integer NOT NULL, "userprofile_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,455 schema 16624 16500 CREATE INDEX "e_mail_mail_date_044ec352" ON "e_mail_mail" ("date"); (params ())
+DEBUG 2020-05-28 12:55:02,457 schema 16624 16500 CREATE INDEX "e_mail_mail_check_send_da94d35a" ON "e_mail_mail" ("check_send"); (params ())
+DEBUG 2020-05-28 12:55:02,460 schema 16624 16500 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_userprofile_id_02eb90bb_uniq" UNIQUE ("mail_id", "userprofile_id"); (params ())
+DEBUG 2020-05-28 12:55:02,464 schema 16624 16500 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_45bc85b4_fk_e_mail_mail_id" FOREIGN KEY ("mail_id") REFERENCES "e_mail_mail" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,466 schema 16624 16500 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_userprofile_id_7f1ff1de_fk_accounts_" FOREIGN KEY ("userprofile_id") REFERENCES "accounts_userprofile" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:02,468 schema 16624 16500 CREATE INDEX "e_mail_mail_users_mail_id_45bc85b4" ON "e_mail_mail_users" ("mail_id"); (params ())
+DEBUG 2020-05-28 12:55:02,471 schema 16624 16500 CREATE INDEX "e_mail_mail_users_userprofile_id_7f1ff1de" ON "e_mail_mail_users" ("userprofile_id"); (params ())
+DEBUG 2020-05-28 12:55:02,480 schema 16624 16500 ALTER TABLE "e_mail_mail" ALTER COLUMN "text" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:02,485 schema 16624 16500 ALTER TABLE "e_mail_mail" ALTER COLUMN "topic" TYPE varchar(100); (params [])
+DEBUG 2020-05-28 12:55:02,513 schema 16624 16500 ALTER TABLE "e_mail_mail" RENAME COLUMN "text" TO "message"; (params ())
+DEBUG 2020-05-28 12:55:02,517 schema 16624 16500 CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:02,525 schema 16624 16500 CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:02,528 schema 16624 16500 CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params ())
+DEBUG 2020-05-28 12:55:02,719 base 16624 16500 Exception while resolving variable 'disable_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 834, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [disable_link] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x05D52DA8>>, 'request': <WSGIRequest: PATCH '/twit/delete/1'>, 'user': <User: vbuchanan>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x05D63778>, 'messages': [], 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'twit': <Tweet: Tweet object (1)>}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <div class="transiti'>, <Variable Node: twit.id>, <TextNode: '" data-twitId="'>, <Variable Node: twit.id>, <TextNode: '">\n        <div class="mx'>, <django.template.loader_tags.IncludeNode object at 0x05D599D0>, <TextNode: '\n\n            <div class='>, <Variable Node: twit.id>, <TextNode: '">\n                <div c'>, <django.template.defaulttags.URLNode object at 0x05D59B38>, <TextNode: '"\n                       '>, <IfNode>, <TextNode: '\n                    >\n  '>, <django.template.loader_tags.IncludeNode object at 0x05D59EB0>, <TextNode: '\n\n                       '>, <django.template.loader_tags.IncludeNode object at 0x05D59FB8>, <TextNode: '\n                        '>, <django.template.loader_tags.IncludeNode object at 0x05D631F0>, <TextNode: '\n                </div>\n\n'>, <IfNode>, <TextNode: '\n            </div>\n     '>]>}, {'user': <User: vbuchanan>, 'size': 49}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <a\n        '>, <IfNode>, <TextNode: '\n        data-userid="'>, <Variable Node: user.id>, <TextNode: '"\n    >\n        '>, <IfNode>, <TextNode: '\n\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n    </a>\n'>]>}]
+DEBUG 2020-05-28 12:55:02,723 base 16624 16500 Exception while resolving variable 'mark_name' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [mark_name] in <Tweet: Tweet object (1)>
+DEBUG 2020-05-28 12:55:02,724 base 16624 16500 Exception while resolving variable 'load_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [load_link] in <Tweet: Tweet object (1)>
+DEBUG 2020-05-28 12:55:19,986 schema 12424 12616 CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,015 schema 12424 12616 CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,021 schema 12424 12616 ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params ())
+DEBUG 2020-05-28 12:55:20,030 schema 12424 12616 ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:20,032 schema 12424 12616 ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params ())
+DEBUG 2020-05-28 12:55:20,037 schema 12424 12616 CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,052 schema 12424 12616 CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 12:55:20,062 schema 12424 12616 CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,072 schema 12424 12616 CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,100 schema 12424 12616 CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,104 schema 12424 12616 CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,110 schema 12424 12616 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params ())
+DEBUG 2020-05-28 12:55:20,122 schema 12424 12616 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,126 schema 12424 12616 CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:20,130 schema 12424 12616 CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:20,134 schema 12424 12616 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params ())
+DEBUG 2020-05-28 12:55:20,138 schema 12424 12616 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,141 schema 12424 12616 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,142 schema 12424 12616 CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params ())
+DEBUG 2020-05-28 12:55:20,145 schema 12424 12616 CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 12:55:20,148 schema 12424 12616 CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:20,151 schema 12424 12616 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params ())
+DEBUG 2020-05-28 12:55:20,155 schema 12424 12616 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,157 schema 12424 12616 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,158 schema 12424 12616 CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,161 schema 12424 12616 CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params ())
+DEBUG 2020-05-28 12:55:20,164 schema 12424 12616 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params ())
+DEBUG 2020-05-28 12:55:20,167 schema 12424 12616 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,169 schema 12424 12616 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,170 schema 12424 12616 CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,173 schema 12424 12616 CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 12:55:20,183 schema 12424 12616 CREATE TABLE "Twitter_tweet" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "image" varchar(100) NOT NULL, "created_date" timestamp with time zone NOT NULL, "is_deleted" boolean NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,198 schema 12424 12616 CREATE TABLE "Twitter_like" ("id" serial NOT NULL PRIMARY KEY, "object_id" integer NOT NULL CHECK ("object_id" >= 0), "content_type_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,209 schema 12424 12616 CREATE TABLE "Twitter_comment" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "created_date" timestamp with time zone NOT NULL, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,223 schema 12424 12616 CREATE TABLE "Twitter_bookmark" ("id" serial NOT NULL PRIMARY KEY, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,229 schema 12424 12616 ALTER TABLE "Twitter_tweet" ADD CONSTRAINT "Twitter_tweet_user_id_6c8d14df_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,232 schema 12424 12616 CREATE INDEX "Twitter_tweet_created_date_4a0e7635" ON "Twitter_tweet" ("created_date"); (params ())
+DEBUG 2020-05-28 12:55:20,236 schema 12424 12616 CREATE INDEX "Twitter_tweet_user_id_6c8d14df" ON "Twitter_tweet" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,240 schema 12424 12616 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_content_type_id_bb8c1020_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,241 schema 12424 12616 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_user_id_f4dc8e13_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,242 schema 12424 12616 CREATE INDEX "Twitter_like_content_type_id_bb8c1020" ON "Twitter_like" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:20,245 schema 12424 12616 CREATE INDEX "Twitter_like_user_id_f4dc8e13" ON "Twitter_like" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,249 schema 12424 12616 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_tweet_id_9521ae88_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,251 schema 12424 12616 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_user_id_5242b4d7_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,252 schema 12424 12616 CREATE INDEX "Twitter_comment_created_date_1fe00dc6" ON "Twitter_comment" ("created_date"); (params ())
+DEBUG 2020-05-28 12:55:20,256 schema 12424 12616 CREATE INDEX "Twitter_comment_tweet_id_9521ae88" ON "Twitter_comment" ("tweet_id"); (params ())
+DEBUG 2020-05-28 12:55:20,259 schema 12424 12616 CREATE INDEX "Twitter_comment_user_id_5242b4d7" ON "Twitter_comment" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,262 schema 12424 12616 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_tweet_id_c8d8632c_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,264 schema 12424 12616 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_user_id_0129133d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,265 schema 12424 12616 CREATE INDEX "Twitter_bookmark_tweet_id_c8d8632c" ON "Twitter_bookmark" ("tweet_id"); (params ())
+DEBUG 2020-05-28 12:55:20,269 schema 12424 12616 CREATE INDEX "Twitter_bookmark_user_id_0129133d" ON "Twitter_bookmark" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,280 schema 12424 12616 CREATE TABLE "accounts_userprofile" ("id" serial NOT NULL PRIMARY KEY, "Verified" boolean NOT NULL, "is_official" boolean NOT NULL, "description" varchar(160) NOT NULL, "image" varchar(100) NOT NULL, "header_image" varchar(100) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 12:55:20,308 schema 12424 12616 CREATE TABLE "accounts_contact" ("id" serial NOT NULL PRIMARY KEY, "created" timestamp with time zone NOT NULL, "user_from_id" integer NOT NULL, "user_to_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,314 schema 12424 12616 ALTER TABLE "accounts_userprofile" ADD CONSTRAINT "accounts_userprofile_user_id_92240672_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,316 schema 12424 12616 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_from_id_d88fc381_fk_auth_user_id" FOREIGN KEY ("user_from_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,317 schema 12424 12616 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_to_id_16d11cce_fk_auth_user_id" FOREIGN KEY ("user_to_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,318 schema 12424 12616 CREATE INDEX "accounts_contact_created_5be07012" ON "accounts_contact" ("created"); (params ())
+DEBUG 2020-05-28 12:55:20,322 schema 12424 12616 CREATE INDEX "accounts_contact_user_from_id_d88fc381" ON "accounts_contact" ("user_from_id"); (params ())
+DEBUG 2020-05-28 12:55:20,325 schema 12424 12616 CREATE INDEX "accounts_contact_user_to_id_16d11cce" ON "accounts_contact" ("user_to_id"); (params ())
+DEBUG 2020-05-28 12:55:20,338 schema 12424 12616 CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,348 schema 12424 12616 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,350 schema 12424 12616 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,350 schema 12424 12616 CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+DEBUG 2020-05-28 12:55:20,353 schema 12424 12616 CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+DEBUG 2020-05-28 12:55:20,383 schema 12424 12616 ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255); (params [])
+DEBUG 2020-05-28 12:55:20,391 schema 12424 12616 ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254); (params [])
+DEBUG 2020-05-28 12:55:20,406 schema 12424 12616 ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:20,423 schema 12424 12616 ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:20,439 schema 12424 12616 ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:20,446 schema 12424 12616 ALTER TABLE "auth_group" ALTER COLUMN "name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 12:55:20,474 schema 12424 12616 CREATE TABLE "e_mail_mail" ("id" serial NOT NULL PRIMARY KEY, "topic" varchar(120) NOT NULL, "text" text NOT NULL, "date" date NOT NULL, "time" time NOT NULL, "check_send" boolean NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,483 schema 12424 12616 CREATE TABLE "e_mail_mail_users" ("id" serial NOT NULL PRIMARY KEY, "mail_id" integer NOT NULL, "userprofile_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,489 schema 12424 12616 CREATE INDEX "e_mail_mail_date_044ec352" ON "e_mail_mail" ("date"); (params ())
+DEBUG 2020-05-28 12:55:20,492 schema 12424 12616 CREATE INDEX "e_mail_mail_check_send_da94d35a" ON "e_mail_mail" ("check_send"); (params ())
+DEBUG 2020-05-28 12:55:20,495 schema 12424 12616 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_userprofile_id_02eb90bb_uniq" UNIQUE ("mail_id", "userprofile_id"); (params ())
+DEBUG 2020-05-28 12:55:20,499 schema 12424 12616 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_45bc85b4_fk_e_mail_mail_id" FOREIGN KEY ("mail_id") REFERENCES "e_mail_mail" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,502 schema 12424 12616 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_userprofile_id_7f1ff1de_fk_accounts_" FOREIGN KEY ("userprofile_id") REFERENCES "accounts_userprofile" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 12:55:20,503 schema 12424 12616 CREATE INDEX "e_mail_mail_users_mail_id_45bc85b4" ON "e_mail_mail_users" ("mail_id"); (params ())
+DEBUG 2020-05-28 12:55:20,507 schema 12424 12616 CREATE INDEX "e_mail_mail_users_userprofile_id_7f1ff1de" ON "e_mail_mail_users" ("userprofile_id"); (params ())
+DEBUG 2020-05-28 12:55:20,515 schema 12424 12616 ALTER TABLE "e_mail_mail" ALTER COLUMN "text" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 12:55:20,520 schema 12424 12616 ALTER TABLE "e_mail_mail" ALTER COLUMN "topic" TYPE varchar(100); (params [])
+DEBUG 2020-05-28 12:55:20,556 schema 12424 12616 ALTER TABLE "e_mail_mail" RENAME COLUMN "text" TO "message"; (params ())
+DEBUG 2020-05-28 12:55:20,560 schema 12424 12616 CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 12:55:20,570 schema 12424 12616 CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 12:55:20,573 schema 12424 12616 CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params ())
+DEBUG 2020-05-28 12:55:20,756 base 12424 12616 Exception while resolving variable 'disable_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 834, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [disable_link] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x060E4FA0>>, 'request': <WSGIRequest: PATCH '/twit/delete/1'>, 'user': <User: jonesdenise>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x060F3778>, 'messages': [], 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'twit': <Tweet: Tweet object (1)>}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <div class="transiti'>, <Variable Node: twit.id>, <TextNode: '" data-twitId="'>, <Variable Node: twit.id>, <TextNode: '">\n        <div class="mx'>, <django.template.loader_tags.IncludeNode object at 0x060EB9D0>, <TextNode: '\n\n            <div class='>, <Variable Node: twit.id>, <TextNode: '">\n                <div c'>, <django.template.defaulttags.URLNode object at 0x060EBB38>, <TextNode: '"\n                       '>, <IfNode>, <TextNode: '\n                    >\n  '>, <django.template.loader_tags.IncludeNode object at 0x060EBEB0>, <TextNode: '\n\n                       '>, <django.template.loader_tags.IncludeNode object at 0x060EBFB8>, <TextNode: '\n                        '>, <django.template.loader_tags.IncludeNode object at 0x060F31F0>, <TextNode: '\n                </div>\n\n'>, <IfNode>, <TextNode: '\n            </div>\n     '>]>}, {'user': <User: jonesdenise>, 'size': 49}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <a\n        '>, <IfNode>, <TextNode: '\n        data-userid="'>, <Variable Node: user.id>, <TextNode: '"\n    >\n        '>, <IfNode>, <TextNode: '\n\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n    </a>\n'>]>}]
+DEBUG 2020-05-28 12:55:20,760 base 12424 12616 Exception while resolving variable 'mark_name' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [mark_name] in <Tweet: Tweet object (1)>
+DEBUG 2020-05-28 12:55:20,761 base 12424 12616 Exception while resolving variable 'load_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [load_link] in <Tweet: Tweet object (1)>
+DEBUG 2020-05-28 13:00:57,045 schema 14700 17088 CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,067 schema 14700 17088 CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,074 schema 14700 17088 ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params ())
+DEBUG 2020-05-28 13:00:57,083 schema 14700 17088 ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 13:00:57,085 schema 14700 17088 ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params ())
+DEBUG 2020-05-28 13:00:57,090 schema 14700 17088 CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,098 schema 14700 17088 CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 13:00:57,105 schema 14700 17088 CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,115 schema 14700 17088 CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,131 schema 14700 17088 CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,136 schema 14700 17088 CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,142 schema 14700 17088 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params ())
+DEBUG 2020-05-28 13:00:57,145 schema 14700 17088 ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,149 schema 14700 17088 CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+DEBUG 2020-05-28 13:00:57,152 schema 14700 17088 CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 13:00:57,156 schema 14700 17088 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params ())
+DEBUG 2020-05-28 13:00:57,159 schema 14700 17088 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,161 schema 14700 17088 ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,162 schema 14700 17088 CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params ())
+DEBUG 2020-05-28 13:00:57,165 schema 14700 17088 CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 13:00:57,168 schema 14700 17088 CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 13:00:57,171 schema 14700 17088 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params ())
+DEBUG 2020-05-28 13:00:57,174 schema 14700 17088 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,177 schema 14700 17088 ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,178 schema 14700 17088 CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,181 schema 14700 17088 CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params ())
+DEBUG 2020-05-28 13:00:57,184 schema 14700 17088 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params ())
+DEBUG 2020-05-28 13:00:57,187 schema 14700 17088 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,189 schema 14700 17088 ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,189 schema 14700 17088 CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,192 schema 14700 17088 CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params ())
+DEBUG 2020-05-28 13:00:57,201 schema 14700 17088 CREATE TABLE "Twitter_tweet" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "image" varchar(100) NOT NULL, "created_date" timestamp with time zone NOT NULL, "is_deleted" boolean NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,217 schema 14700 17088 CREATE TABLE "Twitter_like" ("id" serial NOT NULL PRIMARY KEY, "object_id" integer NOT NULL CHECK ("object_id" >= 0), "content_type_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,228 schema 14700 17088 CREATE TABLE "Twitter_comment" ("id" serial NOT NULL PRIMARY KEY, "content" text NOT NULL, "created_date" timestamp with time zone NOT NULL, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,242 schema 14700 17088 CREATE TABLE "Twitter_bookmark" ("id" serial NOT NULL PRIMARY KEY, "tweet_id" integer NOT NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,248 schema 14700 17088 ALTER TABLE "Twitter_tweet" ADD CONSTRAINT "Twitter_tweet_user_id_6c8d14df_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,250 schema 14700 17088 CREATE INDEX "Twitter_tweet_created_date_4a0e7635" ON "Twitter_tweet" ("created_date"); (params ())
+DEBUG 2020-05-28 13:00:57,254 schema 14700 17088 CREATE INDEX "Twitter_tweet_user_id_6c8d14df" ON "Twitter_tweet" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,256 schema 14700 17088 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_content_type_id_bb8c1020_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,258 schema 14700 17088 ALTER TABLE "Twitter_like" ADD CONSTRAINT "Twitter_like_user_id_f4dc8e13_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,259 schema 14700 17088 CREATE INDEX "Twitter_like_content_type_id_bb8c1020" ON "Twitter_like" ("content_type_id"); (params ())
+DEBUG 2020-05-28 13:00:57,261 schema 14700 17088 CREATE INDEX "Twitter_like_user_id_f4dc8e13" ON "Twitter_like" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,264 schema 14700 17088 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_tweet_id_9521ae88_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,267 schema 14700 17088 ALTER TABLE "Twitter_comment" ADD CONSTRAINT "Twitter_comment_user_id_5242b4d7_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,267 schema 14700 17088 CREATE INDEX "Twitter_comment_created_date_1fe00dc6" ON "Twitter_comment" ("created_date"); (params ())
+DEBUG 2020-05-28 13:00:57,270 schema 14700 17088 CREATE INDEX "Twitter_comment_tweet_id_9521ae88" ON "Twitter_comment" ("tweet_id"); (params ())
+DEBUG 2020-05-28 13:00:57,273 schema 14700 17088 CREATE INDEX "Twitter_comment_user_id_5242b4d7" ON "Twitter_comment" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,276 schema 14700 17088 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_tweet_id_c8d8632c_fk_Twitter_tweet_id" FOREIGN KEY ("tweet_id") REFERENCES "Twitter_tweet" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,278 schema 14700 17088 ALTER TABLE "Twitter_bookmark" ADD CONSTRAINT "Twitter_bookmark_user_id_0129133d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,279 schema 14700 17088 CREATE INDEX "Twitter_bookmark_tweet_id_c8d8632c" ON "Twitter_bookmark" ("tweet_id"); (params ())
+DEBUG 2020-05-28 13:00:57,282 schema 14700 17088 CREATE INDEX "Twitter_bookmark_user_id_0129133d" ON "Twitter_bookmark" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,293 schema 14700 17088 CREATE TABLE "accounts_userprofile" ("id" serial NOT NULL PRIMARY KEY, "Verified" boolean NOT NULL, "is_official" boolean NOT NULL, "description" varchar(160) NOT NULL, "image" varchar(100) NOT NULL, "header_image" varchar(100) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+DEBUG 2020-05-28 13:00:57,310 schema 14700 17088 CREATE TABLE "accounts_contact" ("id" serial NOT NULL PRIMARY KEY, "created" timestamp with time zone NOT NULL, "user_from_id" integer NOT NULL, "user_to_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,316 schema 14700 17088 ALTER TABLE "accounts_userprofile" ADD CONSTRAINT "accounts_userprofile_user_id_92240672_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,318 schema 14700 17088 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_from_id_d88fc381_fk_auth_user_id" FOREIGN KEY ("user_from_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,319 schema 14700 17088 ALTER TABLE "accounts_contact" ADD CONSTRAINT "accounts_contact_user_to_id_16d11cce_fk_auth_user_id" FOREIGN KEY ("user_to_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,320 schema 14700 17088 CREATE INDEX "accounts_contact_created_5be07012" ON "accounts_contact" ("created"); (params ())
+DEBUG 2020-05-28 13:00:57,323 schema 14700 17088 CREATE INDEX "accounts_contact_user_from_id_d88fc381" ON "accounts_contact" ("user_from_id"); (params ())
+DEBUG 2020-05-28 13:00:57,326 schema 14700 17088 CREATE INDEX "accounts_contact_user_to_id_16d11cce" ON "accounts_contact" ("user_to_id"); (params ())
+DEBUG 2020-05-28 13:00:57,338 schema 14700 17088 CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,349 schema 14700 17088 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,350 schema 14700 17088 ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,350 schema 14700 17088 CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+DEBUG 2020-05-28 13:00:57,353 schema 14700 17088 CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+DEBUG 2020-05-28 13:00:57,383 schema 14700 17088 ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255); (params [])
+DEBUG 2020-05-28 13:00:57,392 schema 14700 17088 ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254); (params [])
+DEBUG 2020-05-28 13:00:57,408 schema 14700 17088 ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 13:00:57,425 schema 14700 17088 ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 13:00:57,441 schema 14700 17088 ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 13:00:57,447 schema 14700 17088 ALTER TABLE "auth_group" ALTER COLUMN "name" TYPE varchar(150); (params [])
+DEBUG 2020-05-28 13:00:57,477 schema 14700 17088 CREATE TABLE "e_mail_mail" ("id" serial NOT NULL PRIMARY KEY, "topic" varchar(120) NOT NULL, "text" text NOT NULL, "date" date NOT NULL, "time" time NOT NULL, "check_send" boolean NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,485 schema 14700 17088 CREATE TABLE "e_mail_mail_users" ("id" serial NOT NULL PRIMARY KEY, "mail_id" integer NOT NULL, "userprofile_id" integer NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,492 schema 14700 17088 CREATE INDEX "e_mail_mail_date_044ec352" ON "e_mail_mail" ("date"); (params ())
+DEBUG 2020-05-28 13:00:57,495 schema 14700 17088 CREATE INDEX "e_mail_mail_check_send_da94d35a" ON "e_mail_mail" ("check_send"); (params ())
+DEBUG 2020-05-28 13:00:57,498 schema 14700 17088 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_userprofile_id_02eb90bb_uniq" UNIQUE ("mail_id", "userprofile_id"); (params ())
+DEBUG 2020-05-28 13:00:57,501 schema 14700 17088 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_mail_id_45bc85b4_fk_e_mail_mail_id" FOREIGN KEY ("mail_id") REFERENCES "e_mail_mail" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,503 schema 14700 17088 ALTER TABLE "e_mail_mail_users" ADD CONSTRAINT "e_mail_mail_users_userprofile_id_7f1ff1de_fk_accounts_" FOREIGN KEY ("userprofile_id") REFERENCES "accounts_userprofile" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+DEBUG 2020-05-28 13:00:57,505 schema 14700 17088 CREATE INDEX "e_mail_mail_users_mail_id_45bc85b4" ON "e_mail_mail_users" ("mail_id"); (params ())
+DEBUG 2020-05-28 13:00:57,508 schema 14700 17088 CREATE INDEX "e_mail_mail_users_userprofile_id_7f1ff1de" ON "e_mail_mail_users" ("userprofile_id"); (params ())
+DEBUG 2020-05-28 13:00:57,516 schema 14700 17088 ALTER TABLE "e_mail_mail" ALTER COLUMN "text" DROP NOT NULL; (params [])
+DEBUG 2020-05-28 13:00:57,522 schema 14700 17088 ALTER TABLE "e_mail_mail" ALTER COLUMN "topic" TYPE varchar(100); (params [])
+DEBUG 2020-05-28 13:00:57,557 schema 14700 17088 ALTER TABLE "e_mail_mail" RENAME COLUMN "text" TO "message"; (params ())
+DEBUG 2020-05-28 13:00:57,560 schema 14700 17088 CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+DEBUG 2020-05-28 13:00:57,569 schema 14700 17088 CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params ())
+DEBUG 2020-05-28 13:00:57,572 schema 14700 17088 CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params ())
+DEBUG 2020-05-28 13:00:57,756 base 14700 17088 Exception while resolving variable 'disable_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 834, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'disable_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [disable_link] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x05EAC460>>, 'request': <WSGIRequest: PATCH '/twit/delete/1'>, 'user': <User: taylorwatkins>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x05EB3A00>, 'messages': [], 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'twit': <Tweet: Tweet object (1)>}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <div class="transiti'>, <Variable Node: twit.id>, <TextNode: '" data-twitId="'>, <Variable Node: twit.id>, <TextNode: '">\n        <div class="mx'>, <django.template.loader_tags.IncludeNode object at 0x05EA6C58>, <TextNode: '\n\n            <div class='>, <Variable Node: twit.id>, <TextNode: '">\n                <div c'>, <django.template.defaulttags.URLNode object at 0x05EA6DC0>, <TextNode: '"\n                       '>, <IfNode>, <TextNode: '\n                    >\n  '>, <django.template.loader_tags.IncludeNode object at 0x05EB3160>, <TextNode: '\n\n                       '>, <django.template.loader_tags.IncludeNode object at 0x05EB3268>, <TextNode: '\n                        '>, <django.template.loader_tags.IncludeNode object at 0x05EB3478>, <TextNode: '\n                </div>\n\n'>, <IfNode>, <TextNode: '\n            </div>\n     '>]>}, {'user': <User: taylorwatkins>, 'size': 49}, {'block': <Block Node: content. Contents: [<TextNode: '\n    <a\n        '>, <IfNode>, <TextNode: '\n        data-userid="'>, <Variable Node: user.id>, <TextNode: '"\n    >\n        '>, <IfNode>, <TextNode: '\n\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n'>, <TextNode: '\n    </a>\n'>]>}]
+DEBUG 2020-05-28 13:00:57,760 base 14700 17088 Exception while resolving variable 'mark_name' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'mark_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [mark_name] in <Tweet: Tweet object (1)>
+DEBUG 2020-05-28 13:00:57,761 base 14700 17088 Exception while resolving variable 'load_link' in template 'list_templates/twit/twit.html'.
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 828, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Tweet' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 836, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Tweet' object has no attribute 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 842, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'load_link'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 847, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [load_link] in <Tweet: Tweet object (1)>

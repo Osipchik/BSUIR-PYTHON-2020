@@ -1,0 +1,2039 @@
+INFO 2020-05-26 18:20:01,073 autoreload 3240 8524 Watching for file changes with StatReloader
+INFO 2020-05-26 18:20:03,568 runserver 3240 16516 HTTP GET / 200 [0.10, 127.0.0.1:53631]
+INFO 2020-05-26 18:20:06,210 runserver 3240 16516 HTTP GET /accounts/login/ 200 [0.02, 127.0.0.1:53631]
+INFO 2020-05-26 18:20:08,404 runserver 3240 16516 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:53631]
+INFO 2020-05-26 18:20:14,625 runserver 3240 16516 HTTP POST /accounts/signup/ 302 [0.24, 127.0.0.1:53631]
+INFO 2020-05-26 18:20:14,716 runserver 3240 16516 HTTP GET / 200 [0.07, 127.0.0.1:53631]
+INFO 2020-05-26 18:23:36,946 autoreload 14344 10292 Watching for file changes with StatReloader
+INFO 2020-05-26 18:23:44,049 runserver 3240 16516 HTTP GET / 200 [0.11, 127.0.0.1:53941]
+INFO 2020-05-26 19:32:03,923 autoreload 11184 12240 Watching for file changes with StatReloader
+INFO 2020-05-26 21:46:50,715 autoreload 7696 12648 Watching for file changes with StatReloader
+INFO 2020-05-26 21:49:24,109 autoreload 6440 3064 Watching for file changes with StatReloader
+INFO 2020-05-26 21:49:45,236 autoreload 12836 8916 Watching for file changes with StatReloader
+INFO 2020-05-26 21:50:30,090 autoreload 13468 11064 Watching for file changes with StatReloader
+ERROR 2020-05-26 21:50:32,690 log 13468 8592 Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 199, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: ОШИБКА:  отношение "django_session" не существует
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\home.py", line 13, in home
+    twits = Tweet.objects.get_twits(request.user, take, 0)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\managers.py", line 62, in get_twits
+    if user.is_authenticated:
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\functional.py", line 224, in inner
+    self._setup()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\functional.py", line 360, in _setup
+    self._wrapped = self._setupfunc()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\__init__.py", line 173, in get_user
+    user_id = _get_user_session_key(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\__init__.py", line 58, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 64, in __getitem__
+    return self._session[key]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 204, in _get_session
+    self._session_cache = self.load()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 411, in get
+    num = len(clone)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 258, in __len__
+    self._fetch_all()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1151, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: ОШИБКА:  отношение "django_session" не существует
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2020-05-26 21:50:32,698 runserver 13468 11736 HTTP GET / 500 [0.18, 127.0.0.1:57830]
+INFO 2020-05-26 21:51:10,247 autoreload 11704 15444 Watching for file changes with StatReloader
+INFO 2020-05-26 21:51:11,954 runserver 11704 19840 HTTP GET / 200 [0.12, 127.0.0.1:57905]
+INFO 2020-05-26 21:51:13,893 runserver 11704 19840 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:57905]
+INFO 2020-05-26 21:51:15,833 runserver 11704 19840 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:57905]
+INFO 2020-05-26 21:51:22,073 runserver 11704 19840 HTTP POST /accounts/signup/ 302 [0.25, 127.0.0.1:57905]
+INFO 2020-05-26 21:51:22,165 runserver 11704 19840 HTTP GET / 200 [0.07, 127.0.0.1:57905]
+WARNING 2020-05-26 22:45:41,956 log 12028 8924 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:45:41,958 log 12028 8924 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:46:06,451 log 5560 5044 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:46:06,452 log 5560 5044 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:47:28,636 log 2276 2404 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:47:28,637 log 2276 2404 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:47:28,640 log 2276 2404 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:47:28,641 log 2276 2404 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:49:59,097 log 18640 7200 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:49:59,098 log 18640 7200 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:49:59,101 log 18640 7200 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:49:59,102 log 18640 7200 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:52:15,729 log 9584 19468 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:52:15,729 log 9584 19468 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:52:15,732 log 9584 19468 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:52:15,733 log 9584 19468 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:53:51,091 log 17520 13412 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:53:51,092 log 17520 13412 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:53:51,100 log 17520 13412 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:53:51,101 log 17520 13412 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:54:04,552 log 9580 18956 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:54:04,553 log 9580 18956 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:54:04,562 log 9580 18956 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:54:04,563 log 9580 18956 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:55:45,657 log 19856 5384 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:55:45,658 log 19856 5384 Not Found: /search/find-by/name
+WARNING 2020-05-26 22:55:45,666 log 19856 5384 Not Found: /search/find-by/username
+WARNING 2020-05-26 22:55:45,667 log 19856 5384 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:02:39,213 log 92 19468 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:02:39,214 log 92 19468 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:02:39,215 log 92 19468 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:02:39,216 log 92 19468 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:03:55,276 log 8788 14880 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:03:55,277 log 8788 14880 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:03:55,279 log 8788 14880 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:03:55,280 log 8788 14880 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:11,388 log 6936 8660 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:11,389 log 6936 8660 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:11,389 log 6936 8660 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:11,390 log 6936 8660 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:23,346 log 17836 20328 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:23,347 log 17836 20328 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:23,348 log 17836 20328 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:23,349 log 17836 20328 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:31,381 log 19316 9932 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:31,382 log 19316 9932 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:04:31,383 log 19316 9932 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:04:31,384 log 19316 9932 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:26:22,533 log 18416 12336 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:26:22,534 log 18416 12336 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:26:22,535 log 18416 12336 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:26:22,536 log 18416 12336 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:26:42,967 log 17952 16608 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:26:42,968 log 17952 16608 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:26:42,969 log 17952 16608 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:26:42,969 log 17952 16608 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:40:33,497 log 716 16160 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:40:33,498 log 716 16160 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:40:33,499 log 716 16160 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:40:33,500 log 716 16160 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:41:01,520 log 16836 19092 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:41:01,521 log 16836 19092 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:41:01,522 log 16836 19092 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:41:01,522 log 16836 19092 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:41:11,880 log 10112 16600 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:41:11,881 log 10112 16600 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:41:11,881 log 10112 16600 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:41:11,882 log 10112 16600 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:46:02,583 log 2368 15432 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:46:02,583 log 2368 15432 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:46:02,584 log 2368 15432 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:46:02,585 log 2368 15432 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:46:51,938 log 17080 7208 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:46:51,939 log 17080 7208 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:46:51,940 log 17080 7208 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:46:51,941 log 17080 7208 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:58:12,290 log 17368 732 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:58:12,291 log 17368 732 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:58:12,292 log 17368 732 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:58:12,293 log 17368 732 Not Found: /search/find-by/username
+ERROR 2020-05-26 23:58:39,304 log 16328 15440 Internal Server Error: /bookmarks/add/1
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\bookmarks.py", line 38, in add_bookmark
+    tweet = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-26 23:58:40,046 log 16328 15440 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:58:40,047 log 16328 15440 Not Found: /search/find-by/name
+WARNING 2020-05-26 23:58:40,048 log 16328 15440 Not Found: /search/find-by/username
+WARNING 2020-05-26 23:58:40,049 log 16328 15440 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:10:33,614 log 19280 10608 Internal Server Error: /bookmarks/add/1
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\bookmarks.py", line 38, in add_bookmark
+    tweet = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:10:34,353 log 19280 10608 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:10:34,354 log 19280 10608 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:10:34,355 log 19280 10608 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:10:34,355 log 19280 10608 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:10:34,524 log 19280 10608 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:11:41,070 log 19440 2812 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:11:41,071 log 19440 2812 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:11:41,072 log 19440 2812 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:11:41,072 log 19440 2812 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:11:55,127 log 1020 11076 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:11:55,128 log 1020 11076 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:11:55,128 log 1020 11076 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:11:55,129 log 1020 11076 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:11:55,298 log 1020 11076 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:14:25,446 log 17092 12464 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:14:25,447 log 17092 12464 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:14:25,448 log 17092 12464 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:14:25,449 log 17092 12464 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:14:25,630 log 17092 12464 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:17:15,242 log 9060 19336 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:17:15,243 log 9060 19336 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:17:15,243 log 9060 19336 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:17:15,244 log 9060 19336 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:17:15,416 log 9060 19336 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:18:06,741 log 19128 12344 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:18:06,742 log 19128 12344 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:18:06,742 log 19128 12344 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:18:06,743 log 19128 12344 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:18:06,916 log 19128 12344 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:18:41,362 log 2748 13624 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:18:41,364 log 2748 13624 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:18:41,365 log 2748 13624 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:18:41,367 log 2748 13624 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:21:46,058 log 9676 2064 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:21:46,059 log 9676 2064 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:21:46,060 log 9676 2064 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:21:46,061 log 9676 2064 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:21:46,234 log 9676 2064 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:26:00,287 log 19220 11076 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:26:00,288 log 19220 11076 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:26:00,289 log 19220 11076 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:26:00,289 log 19220 11076 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:26:00,462 log 19220 11076 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:30:06,521 log 16144 8420 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:30:06,522 log 16144 8420 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:30:06,522 log 16144 8420 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:30:06,523 log 16144 8420 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:30:49,851 log 4216 7992 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:30:49,852 log 4216 7992 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:30:49,853 log 4216 7992 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:30:49,854 log 4216 7992 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:31:04,239 log 13940 15968 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:31:04,240 log 13940 15968 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:31:04,240 log 13940 15968 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:31:04,241 log 13940 15968 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:31:17,626 log 16092 4036 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:31:17,627 log 16092 4036 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:31:17,628 log 16092 4036 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:31:17,629 log 16092 4036 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:32:03,416 log 17508 6752 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:03,417 log 17508 6752 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:03,418 log 17508 6752 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:32:03,418 log 17508 6752 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:32:03,589 log 17508 6752 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:32:22,727 log 15604 11704 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:22,729 log 15604 11704 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:22,729 log 15604 11704 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:32:22,730 log 15604 11704 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:32:46,976 log 2628 12912 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:32:47,732 log 2628 12912 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:47,733 log 2628 12912 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:32:47,734 log 2628 12912 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:32:47,734 log 2628 12912 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:36:10,191 log 16592 17984 Method Not Allowed (POST): /twit/delete/1
+WARNING 2020-05-27 00:36:10,957 log 16592 17984 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:36:10,958 log 16592 17984 Not Found: /search/find-by/name
+WARNING 2020-05-27 00:36:10,959 log 16592 17984 Not Found: /search/find-by/username
+WARNING 2020-05-27 00:36:10,959 log 16592 17984 Not Found: /search/find-by/username
+ERROR 2020-05-27 00:36:11,137 log 16592 17984 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-27 00:36:21,438 log 5084 15228 Method Not Allowed (POST): /twit/delete/1
+WARNING 2020-05-27 00:37:41,365 log 6340 3692 Method Not Allowed (POST): /twit/delete/1
+WARNING 2020-05-27 00:43:11,839 log 16012 17816 Method Not Allowed (POST): /bookmarks/remove/1
+ERROR 2020-05-27 00:43:40,391 log 20272 5172 Internal Server Error: /bookmarks/remove/1
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\bookmarks.py", line 54, in remove_bookmark
+    bookmark = get_objects_or_none(Bookmark, tweet_id=twit_id, user_id=request.user.id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+INFO 2020-05-27 13:36:49,648 autoreload 7352 10712 Watching for file changes with StatReloader
+INFO 2020-05-27 13:36:53,732 runserver 7352 4564 HTTP GET / 200 [0.14, 127.0.0.1:62727]
+INFO 2020-05-27 13:36:53,810 runserver 7352 4564 HTTP GET /static/css/site.css 304 [0.01, 127.0.0.1:62727]
+INFO 2020-05-27 13:36:53,810 runserver 7352 4564 HTTP GET /static/css/icons.css 304 [0.01, 127.0.0.1:62728]
+INFO 2020-05-27 13:36:53,812 runserver 7352 4564 HTTP GET /static/css/text.css 304 [0.01, 127.0.0.1:62732]
+INFO 2020-05-27 13:36:53,814 runserver 7352 4564 HTTP GET /static/js/SetLike.js 304 [0.01, 127.0.0.1:62733]
+INFO 2020-05-27 13:36:53,818 runserver 7352 4564 HTTP GET /static/js/twit.js 304 [0.01, 127.0.0.1:62734]
+INFO 2020-05-27 13:36:53,820 runserver 7352 4564 HTTP GET /static/js/site.js 304 [0.01, 127.0.0.1:62735]
+INFO 2020-05-27 13:36:53,821 runserver 7352 4564 HTTP GET /static/js/bookmark.js 304 [0.00, 127.0.0.1:62727]
+INFO 2020-05-27 13:36:53,823 runserver 7352 4564 HTTP GET /static/js/autoload.js 304 [0.01, 127.0.0.1:62728]
+INFO 2020-05-27 13:36:53,823 runserver 7352 4564 HTTP GET /static/js/preloader.js 304 [0.01, 127.0.0.1:62732]
+INFO 2020-05-27 14:23:11,067 autoreload 18852 19828 Watching for file changes with StatReloader
+INFO 2020-05-27 14:23:46,557 autoreload 12684 18488 Watching for file changes with StatReloader
+INFO 2020-05-27 14:23:48,472 runserver 12684 12000 HTTP GET / 200 [0.11, 127.0.0.1:63485]
+INFO 2020-05-27 14:23:51,125 runserver 12684 12000 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:63485]
+INFO 2020-05-27 14:23:51,207 runserver 12684 12000 HTTP GET / 200 [0.06, 127.0.0.1:63485]
+INFO 2020-05-27 14:23:52,105 runserver 12684 12000 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:63485]
+INFO 2020-05-27 14:23:54,054 runserver 12684 12000 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:63485]
+INFO 2020-05-27 14:24:00,914 runserver 12684 12000 HTTP POST /accounts/signup/ 302 [0.25, 127.0.0.1:63485]
+INFO 2020-05-27 14:24:01,014 runserver 12684 12000 HTTP GET / 200 [0.07, 127.0.0.1:63485]
+INFO 2020-05-27 16:13:23,454 autoreload 19136 10540 Watching for file changes with StatReloader
+INFO 2020-05-27 16:21:59,032 autoreload 5564 1528 Watching for file changes with StatReloader
+INFO 2020-05-27 16:22:26,111 autoreload 18828 13548 Watching for file changes with StatReloader
+INFO 2020-05-27 16:22:28,281 runserver 18828 20432 HTTP GET / 200 [0.22, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:32,209 runserver 18828 20432 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:32,294 runserver 18828 20432 HTTP GET / 200 [0.06, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:33,320 runserver 18828 20432 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:34,819 runserver 18828 20432 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:44,172 runserver 18828 20432 HTTP POST /accounts/signup/ 302 [0.25, 127.0.0.1:64927]
+INFO 2020-05-27 16:22:44,262 runserver 18828 20432 HTTP GET / 200 [0.07, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:07,632 runserver 18828 20432 HTTP GET /admin 301 [0.00, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:07,740 runserver 18828 20432 HTTP GET /admin/ 302 [0.06, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:08,090 runserver 18828 20432 HTTP GET /admin/login/?next=/admin/ 200 [0.33, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:08,155 runserver 18828 20432 HTTP GET /static/admin/css/login.css 200 [0.01, 127.0.0.1:64968]
+INFO 2020-05-27 16:23:08,155 runserver 18828 20432 HTTP GET /static/admin/css/responsive.css 200 [0.01, 127.0.0.1:64975]
+INFO 2020-05-27 16:23:08,157 runserver 18828 20432 HTTP GET /static/admin/css/base.css 200 [0.02, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:08,204 runserver 18828 20432 HTTP GET /static/admin/css/fonts.css 200 [0.01, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:09,939 runserver 18828 20432 HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [1.69, 127.0.0.1:64975]
+INFO 2020-05-27 16:23:10,001 runserver 18828 20432 HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [1.75, 127.0.0.1:64968]
+INFO 2020-05-27 16:23:10,008 runserver 18828 20432 HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [1.76, 127.0.0.1:64927]
+WARNING 2020-05-27 16:23:10,140 log 18828 6552 Not Found: /favicon.ico
+WARNING 2020-05-27 16:23:10,143 runserver 18828 20432 HTTP GET /favicon.ico 404 [0.11, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:17,566 runserver 18828 20432 HTTP POST /admin/login/?next=/admin/ 200 [0.24, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:20,890 runserver 18828 20432 HTTP POST /admin/login/?next=/admin/ 200 [0.24, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:24,157 runserver 18828 20432 HTTP POST /admin/login/?next=/admin/ 200 [0.24, 127.0.0.1:64927]
+INFO 2020-05-27 16:23:27,468 runserver 18828 20432 HTTP POST /admin/login/?next=/admin/ 200 [0.24, 127.0.0.1:64927]
+INFO 2020-05-27 16:24:28,789 runserver 18828 20432 HTTP POST /admin/login/?next=/admin/ 302 [0.24, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:28,878 runserver 18828 20432 HTTP GET /admin/ 200 [0.07, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:28,925 runserver 18828 20432 HTTP GET /static/admin/css/dashboard.css 200 [0.01, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:28,969 runserver 18828 20432 HTTP GET /static/admin/img/icon-addlink.svg 200 [0.01, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:28,969 runserver 18828 20432 HTTP GET /static/admin/img/icon-changelink.svg 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:31,478 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.09, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:31,550 runserver 18828 20432 HTTP GET /static/admin/css/changelists.css 200 [0.02, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:31,554 runserver 18828 20432 HTTP GET /static/admin/js/jquery.init.js 200 [0.02, 127.0.0.1:65014]
+INFO 2020-05-27 16:24:31,562 runserver 18828 20432 HTTP GET /static/admin/js/core.js 200 [0.02, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:31,567 runserver 18828 20432 HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:31,571 runserver 18828 20432 HTTP GET /static/admin/js/urlify.js 200 [0.02, 127.0.0.1:65014]
+INFO 2020-05-27 16:24:31,584 runserver 18828 20432 HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.05, 127.0.0.1:65013]
+INFO 2020-05-27 16:24:31,586 runserver 18828 20432 HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.02, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:31,594 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:31,595 runserver 18828 20432 HTTP GET /static/admin/js/actions.js 200 [0.04, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:31,607 runserver 18828 20432 HTTP GET /static/admin/js/prepopulate.js 200 [0.04, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:31,611 runserver 18828 20432 HTTP GET /static/admin/img/search.svg 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:31,626 runserver 18828 20432 HTTP GET /static/admin/img/icon-yes.svg 200 [0.01, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:31,627 runserver 18828 20432 HTTP GET /static/admin/img/icon-no.svg 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:31,652 runserver 18828 20432 HTTP GET /static/admin/img/tooltag-add.svg 200 [0.01, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:31,661 runserver 18828 20432 HTTP GET /static/admin/img/sorting-icons.svg 200 [0.02, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:38,220 runserver 18828 20432 HTTP GET /admin/auth/user/?is_active__exact=1 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:38,306 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:43,877 runserver 18828 20432 HTTP GET /admin/auth/user/?is_active__exact=0 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:43,970 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:45,587 runserver 18828 20432 HTTP GET /admin/auth/user/?is_active__exact=1 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:45,682 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:52,372 runserver 18828 20432 HTTP GET /admin/auth/user/2/change/?_changelist_filters=is_active__exact%3D1 200 [0.13, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:52,431 runserver 18828 20432 HTTP GET /static/admin/css/forms.css 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:52,447 runserver 18828 20432 HTTP GET /static/admin/js/SelectFilter2.js 200 [0.03, 127.0.0.1:65014]
+INFO 2020-05-27 16:24:52,449 runserver 18828 20432 HTTP GET /static/admin/js/calendar.js 200 [0.03, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:52,449 runserver 18828 20432 HTTP GET /static/admin/js/SelectBox.js 200 [0.03, 127.0.0.1:65013]
+INFO 2020-05-27 16:24:52,449 runserver 18828 20432 HTTP GET /static/admin/css/widgets.css 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:24:52,452 runserver 18828 20432 HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.03, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:52,465 runserver 18828 20432 HTTP GET /static/admin/js/change_form.js 200 [0.01, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:52,477 runserver 18828 20432 HTTP GET /static/admin/js/prepopulate_init.js 200 [0.01, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:52,482 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:52,569 runserver 18828 20432 HTTP GET /static/admin/img/selector-icons.svg 200 [0.01, 127.0.0.1:65016]
+INFO 2020-05-27 16:24:52,571 runserver 18828 20432 HTTP GET /static/admin/img/icon-unknown-alt.svg 200 [0.01, 127.0.0.1:65015]
+INFO 2020-05-27 16:24:52,571 runserver 18828 20432 HTTP GET /static/admin/img/icon-clock.svg 200 [0.01, 127.0.0.1:65013]
+INFO 2020-05-27 16:24:52,574 runserver 18828 20432 HTTP GET /static/admin/img/icon-unknown.svg 200 [0.02, 127.0.0.1:65005]
+INFO 2020-05-27 16:24:52,574 runserver 18828 20432 HTTP GET /static/admin/img/icon-calendar.svg 200 [0.01, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:20,512 runserver 18828 20432 HTTP GET /admin/auth/ 200 [0.06, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:22,373 runserver 18828 20432 HTTP GET /admin/ 200 [0.06, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:24,719 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:24,826 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:27,076 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/4/change/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:27,283 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.16, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:48,476 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:48,563 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:50,057 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/3/change/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:50,148 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:52,503 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:25:52,590 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:26:02,480 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/2/change/ 200 [0.08, 127.0.0.1:65006]
+INFO 2020-05-27 16:26:02,570 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65006]
+INFO 2020-05-27 16:27:18,158 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:20,617 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/3/change/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:22,702 runserver 18828 20432 HTTP GET /admin/accounts/userprofile/ 200 [0.18, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:22,791 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:25,184 runserver 18828 20432 HTTP GET /admin/accounts/ 200 [0.06, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:27,732 runserver 18828 20432 HTTP GET /admin/ 200 [0.06, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:29,702 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:27:29,900 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:17,136 runserver 18828 20432 HTTP POST /admin/auth/user/ 302 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:17,238 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:17,333 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:17,374 runserver 18828 20432 HTTP GET /static/admin/img/icon-alert.svg 200 [0.01, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:23,170 runserver 18828 20432 HTTP POST /admin/auth/user/ 200 [0.10, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:23,213 runserver 18828 20432 HTTP GET /static/admin/js/cancel.js 200 [0.01, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:24,702 runserver 18828 20432 HTTP POST /admin/auth/user/ 302 [0.11, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:24,806 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:24,898 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:29,884 runserver 18828 20432 HTTP GET /admin/auth/user/add/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:29,972 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:50,494 runserver 18828 20432 HTTP POST /admin/auth/user/add/ 302 [0.23, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:50,641 runserver 18828 20432 HTTP GET /admin/auth/user/5/change/ 200 [0.12, 127.0.0.1:65072]
+INFO 2020-05-27 16:28:50,829 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:01,750 runserver 18828 20432 HTTP POST /admin/auth/user/5/change/ 302 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:01,853 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:01,940 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:03,861 runserver 18828 20432 HTTP GET /admin/auth/user/5/change/ 200 [0.12, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:04,046 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:09,606 runserver 18828 20432 HTTP POST /admin/auth/user/5/change/ 302 [0.07, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:09,706 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:09,812 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:17,742 runserver 18828 20432 HTTP GET /admin/auth/user/5/change/ 200 [0.12, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:17,832 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:22,782 runserver 18828 20432 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:32,608 runserver 18828 20432 HTTP GET /admin/auth/user/5/change/ 200 [0.12, 127.0.0.1:65072]
+INFO 2020-05-27 16:29:32,704 runserver 18828 20432 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65072]
+INFO 2020-05-27 17:40:56,003 autoreload 16172 9016 Watching for file changes with StatReloader
+INFO 2020-05-27 17:42:38,800 autoreload 16172 9016 D:\DEV\LAB_3_Twitter\Twitter\accounts\AccountActivationTokenGenerator.py changed, reloading.
+INFO 2020-05-27 17:42:39,902 autoreload 17800 14884 Watching for file changes with StatReloader
+INFO 2020-05-27 17:44:15,327 autoreload 15548 13156 Watching for file changes with StatReloader
+INFO 2020-05-27 17:44:33,600 autoreload 6932 1740 Watching for file changes with StatReloader
+INFO 2020-05-27 17:44:42,742 runserver 6932 15244 HTTP GET / 200 [0.10, 127.0.0.1:49451]
+INFO 2020-05-27 17:44:46,431 runserver 6932 15244 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:49451]
+INFO 2020-05-27 17:44:46,512 runserver 6932 15244 HTTP GET / 200 [0.06, 127.0.0.1:49451]
+INFO 2020-05-27 17:44:47,579 runserver 6932 15244 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:49451]
+INFO 2020-05-27 17:44:49,393 runserver 6932 15244 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49451]
+INFO 2020-05-27 17:47:06,235 autoreload 13640 1384 Watching for file changes with StatReloader
+INFO 2020-05-27 17:47:08,944 runserver 13640 7844 HTTP GET /accounts/signup/ 200 [0.04, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:09,058 runserver 13640 7844 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:10,716 runserver 13640 7844 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:10,817 runserver 13640 7844 HTTP GET /media/favicon.ico 200 [0.00, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:11,293 runserver 13640 7844 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:11,392 runserver 13640 7844 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:11,740 runserver 13640 7844 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:11,836 runserver 13640 7844 HTTP GET /media/favicon.ico 200 [0.00, 127.0.0.1:49506]
+INFO 2020-05-27 17:47:22,512 autoreload 14552 9976 Watching for file changes with StatReloader
+INFO 2020-05-27 17:47:25,916 runserver 14552 2124 HTTP GET / 200 [0.16, 127.0.0.1:49538]
+INFO 2020-05-27 17:47:27,071 runserver 14552 2124 HTTP GET /accounts/login/ 200 [0.02, 127.0.0.1:49538]
+INFO 2020-05-27 17:48:09,204 autoreload 20116 19004 Watching for file changes with StatReloader
+INFO 2020-05-27 17:48:11,975 runserver 20116 15908 HTTP GET / 200 [0.10, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:13,038 runserver 20116 15908 HTTP GET /accounts/login/ 200 [0.02, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:14,254 runserver 20116 15908 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:25,433 runserver 20116 15908 HTTP POST /accounts/signup/ 200 [0.06, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:44,061 runserver 20116 15908 HTTP GET /admin/ 302 [0.02, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:44,158 runserver 20116 15908 HTTP GET /admin/login/?next=/admin/ 200 [0.07, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:55,482 runserver 20116 15908 HTTP POST /admin/login/?next=/admin/ 200 [0.23, 127.0.0.1:49569]
+INFO 2020-05-27 17:48:59,174 runserver 20116 15908 HTTP POST /admin/login/?next=/admin/ 200 [0.22, 127.0.0.1:49569]
+INFO 2020-05-27 17:49:28,467 runserver 20116 15908 HTTP POST /admin/login/?next=/admin/ 302 [0.23, 127.0.0.1:49569]
+INFO 2020-05-27 17:49:28,561 runserver 20116 15908 HTTP GET /admin/ 200 [0.07, 127.0.0.1:49569]
+INFO 2020-05-27 17:49:30,352 runserver 20116 15908 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:49569]
+INFO 2020-05-27 17:49:30,449 runserver 20116 15908 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49569]
+INFO 2020-05-27 17:49:58,463 autoreload 7192 10176 Watching for file changes with StatReloader
+INFO 2020-05-27 17:50:00,011 runserver 7192 14944 HTTP GET / 200 [0.17, 127.0.0.1:49637]
+INFO 2020-05-27 17:50:09,953 runserver 7192 14944 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:49637]
+INFO 2020-05-27 17:50:10,053 runserver 7192 14944 HTTP GET / 200 [0.08, 127.0.0.1:49637]
+INFO 2020-05-27 17:50:10,940 runserver 7192 14944 HTTP GET /accounts/login/ 200 [0.02, 127.0.0.1:49637]
+INFO 2020-05-27 17:50:18,760 runserver 7192 14944 HTTP GET /accounts/signup/ 200 [6.97, 127.0.0.1:49637]
+INFO 2020-05-27 17:51:15,595 autoreload 1832 16368 Watching for file changes with StatReloader
+INFO 2020-05-27 17:51:21,612 runserver 1832 19940 HTTP GET /admin/auth/user/5/change/ 302 [0.03, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:21,722 runserver 1832 19940 HTTP GET /admin/login/?next=/admin/auth/user/5/change/ 200 [0.09, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:33,413 runserver 1832 19940 HTTP GET /admin/auth/user/ 302 [0.00, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:33,465 runserver 1832 19940 HTTP GET /admin/login/?next=/admin/auth/user/ 200 [0.03, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:35,485 runserver 1832 19940 HTTP GET /admin/ 302 [0.00, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:35,529 runserver 1832 19940 HTTP GET /admin/login/?next=/admin/ 200 [0.01, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:37,253 runserver 1832 19940 HTTP GET /admin/login/?next=/admin/ 200 [0.01, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:41,518 runserver 1832 19940 HTTP POST /admin/login/?next=/admin/ 302 [0.23, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:41,609 runserver 1832 19940 HTTP GET /admin/ 200 [0.07, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:43,096 runserver 1832 19940 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:43,194 runserver 1832 19940 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:47,903 runserver 1832 19940 HTTP POST /admin/auth/user/ 200 [0.10, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:49,199 runserver 1832 19940 HTTP POST /admin/auth/user/ 302 [0.10, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:49,296 runserver 1832 19940 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:49,386 runserver 1832 19940 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:59,744 runserver 1832 19940 HTTP GET /admin/auth/user/?o=2.1 200 [0.08, 127.0.0.1:49896]
+INFO 2020-05-27 17:51:59,847 runserver 1832 19940 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49896]
+INFO 2020-05-27 17:52:03,299 runserver 1832 19940 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:49896]
+INFO 2020-05-27 17:52:03,391 runserver 1832 19940 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49896]
+INFO 2020-05-27 17:52:36,734 runserver 1832 19940 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49896]
+INFO 2020-05-27 17:52:36,955 runserver 1832 19940 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:49896]
+ERROR 2020-05-27 17:52:48,707 log 1832 10136 Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py", line 51, in signup_view
+    'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
+AttributeError: 'str' object has no attribute 'decode'
+ERROR 2020-05-27 17:52:48,709 runserver 1832 19940 HTTP POST /accounts/signup/ 500 [0.28, 127.0.0.1:49896]
+INFO 2020-05-27 17:56:28,468 autoreload 9240 15788 Watching for file changes with StatReloader
+INFO 2020-05-27 17:56:32,828 runserver 9240 19944 HTTP GET /admin/auth/user/?o=-1.2 200 [0.18, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:32,916 runserver 9240 19944 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:34,904 runserver 9240 19944 HTTP POST /admin/auth/user/?o=-1.2 302 [0.05, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:35,003 runserver 9240 19944 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:35,189 runserver 9240 19944 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:38,386 runserver 9240 19944 HTTP POST /admin/auth/user/?o=-1.2 200 [0.10, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:39,487 runserver 9240 19944 HTTP POST /admin/auth/user/?o=-1.2 302 [0.12, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:39,587 runserver 9240 19944 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:39,678 runserver 9240 19944 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:47,130 runserver 9240 19944 HTTP GET / 200 [0.07, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:49,826 runserver 9240 19944 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:49,912 runserver 9240 19944 HTTP GET / 200 [0.06, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:50,858 runserver 9240 19944 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:52,033 runserver 9240 19944 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:49997]
+INFO 2020-05-27 17:56:59,826 runserver 9240 19944 HTTP POST /accounts/signup/ 200 [2.63, 127.0.0.1:49997]
+INFO 2020-05-27 17:58:11,735 autoreload 8756 6412 Watching for file changes with StatReloader
+INFO 2020-05-27 17:58:13,920 runserver 8756 16836 HTTP GET / 200 [0.09, 127.0.0.1:50227]
+INFO 2020-05-27 18:16:33,363 autoreload 2156 1076 Watching for file changes with StatReloader
+INFO 2020-05-27 18:16:42,898 runserver 2156 18644 HTTP GET / 200 [0.10, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:44,000 runserver 2156 18644 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:47,398 runserver 2156 18644 HTTP GET /admin/auth/user/?o=-1.2 302 [0.02, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:47,685 runserver 2156 18644 HTTP GET /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 200 [0.27, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:47,732 runserver 2156 18644 HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:47,733 runserver 2156 18644 HTTP GET /static/admin/css/login.css 304 [0.00, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:50,906 runserver 2156 18644 HTTP POST /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 302 [0.23, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:51,012 runserver 2156 18644 HTTP GET /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:51,061 runserver 2156 18644 HTTP GET /static/admin/img/icon-no.svg 304 [0.00, 127.0.0.1:50813]
+INFO 2020-05-27 18:16:51,106 runserver 2156 18644 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:58,132 runserver 2156 18644 HTTP POST /admin/auth/user/?o=-1.2 200 [0.10, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:59,269 runserver 2156 18644 HTTP POST /admin/auth/user/?o=-1.2 302 [0.11, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:59,372 runserver 2156 18644 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:59,412 runserver 2156 18644 HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:50814]
+INFO 2020-05-27 18:16:59,557 runserver 2156 18644 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:50813]
+INFO 2020-05-27 18:17:02,990 runserver 2156 18644 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:50813]
+INFO 2020-05-27 18:17:10,106 runserver 2156 18644 HTTP POST /accounts/signup/ 200 [2.40, 127.0.0.1:50813]
+INFO 2020-05-27 18:21:59,624 autoreload 4576 20332 Watching for file changes with StatReloader
+INFO 2020-05-27 18:22:03,073 runserver 4576 1452 HTTP GET / 200 [0.12, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:05,858 runserver 4576 1452 HTTP GET /admin/auth/user/?o=-1.2 200 [0.14, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:06,046 runserver 4576 1452 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:11,426 runserver 4576 1452 HTTP POST /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:11,473 runserver 4576 1452 HTTP GET /static/admin/js/cancel.js 304 [0.00, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:12,488 runserver 4576 1452 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:12,587 runserver 4576 1452 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:12,683 runserver 4576 1452 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:19,294 runserver 4576 1452 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:19,375 runserver 4576 1452 HTTP GET / 200 [0.06, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:20,205 runserver 4576 1452 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:21,991 runserver 4576 1452 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:50895]
+INFO 2020-05-27 18:22:28,034 runserver 4576 1452 HTTP POST /accounts/signup/ 200 [0.07, 127.0.0.1:50895]
+INFO 2020-05-27 18:26:49,641 autoreload 4576 20332 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 18:26:50,773 autoreload 16212 12928 Watching for file changes with StatReloader
+INFO 2020-05-27 18:27:01,132 autoreload 16212 12928 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 18:27:02,221 autoreload 8548 18644 Watching for file changes with StatReloader
+INFO 2020-05-27 18:27:12,659 autoreload 8548 18644 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 18:27:13,764 autoreload 4964 5072 Watching for file changes with StatReloader
+INFO 2020-05-27 18:30:20,586 autoreload 4964 5072 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 18:30:21,686 autoreload 12032 1100 Watching for file changes with StatReloader
+INFO 2020-05-27 18:35:00,406 autoreload 12032 1100 D:\DEV\LAB_3_Twitter\Twitter\accounts\urls.py changed, reloading.
+INFO 2020-05-27 18:35:01,510 autoreload 17456 6668 Watching for file changes with StatReloader
+INFO 2020-05-27 18:36:08,041 autoreload 17456 6668 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 18:36:09,195 autoreload 16864 16516 Watching for file changes with StatReloader
+INFO 2020-05-27 18:37:23,252 autoreload 17540 2892 Watching for file changes with StatReloader
+INFO 2020-05-27 18:37:25,680 runserver 17540 15388 HTTP GET / 200 [0.10, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:29,126 runserver 17540 15388 HTTP GET /admin/auth/user/?o=-1.2 302 [0.02, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:29,220 runserver 17540 15388 HTTP GET /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 200 [0.07, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:32,063 runserver 17540 15388 HTTP POST /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 302 [0.23, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:32,164 runserver 17540 15388 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:32,259 runserver 17540 15388 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:36,625 runserver 17540 15388 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:51153]
+INFO 2020-05-27 18:37:37,633 runserver 17540 15388 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:51153]
+ERROR 2020-05-27 18:37:41,902 log 17540 11188 Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py", line 50, in signup_view
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' not found. 'activate' is not a valid view function or pattern name.
+ERROR 2020-05-27 18:37:41,907 runserver 17540 15388 HTTP POST /accounts/signup/ 500 [0.28, 127.0.0.1:51153]
+INFO 2020-05-27 18:38:14,146 autoreload 15224 7252 Watching for file changes with StatReloader
+INFO 2020-05-27 18:38:25,587 runserver 15224 13480 HTTP GET / 200 [0.13, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:27,996 runserver 15224 13480 HTTP GET /admin/auth/user/?o=-1.2 200 [0.17, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:28,090 runserver 15224 13480 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:30,695 runserver 15224 13480 HTTP POST /admin/auth/user/?o=-1.2 200 [0.10, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:31,685 runserver 15224 13480 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:31,783 runserver 15224 13480 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:31,878 runserver 15224 13480 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:36,445 runserver 15224 13480 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:36,527 runserver 15224 13480 HTTP GET / 200 [0.06, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:37,364 runserver 15224 13480 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:38,492 runserver 15224 13480 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:51187]
+INFO 2020-05-27 18:38:46,503 runserver 15224 13480 HTTP POST /accounts/signup/ 200 [2.07, 127.0.0.1:51187]
+INFO 2020-05-27 18:40:51,375 autoreload 11652 20364 Watching for file changes with StatReloader
+INFO 2020-05-27 18:40:59,532 runserver 11652 13988 HTTP GET / 200 [0.10, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:01,890 runserver 11652 13988 HTTP GET /admin/auth/user/?o=-1.2 302 [0.02, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:02,032 runserver 11652 13988 HTTP GET /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 200 [0.12, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:05,649 runserver 11652 13988 HTTP POST /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 302 [0.23, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:05,757 runserver 11652 13988 HTTP GET /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:05,847 runserver 11652 13988 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:09,000 runserver 11652 13988 HTTP POST /admin/auth/user/?o=-1.2 200 [0.10, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:10,393 runserver 11652 13988 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:10,492 runserver 11652 13988 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:10,576 runserver 11652 13988 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:12,581 runserver 11652 13988 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:13,423 runserver 11652 13988 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:51238]
+INFO 2020-05-27 18:41:19,350 runserver 11652 13988 HTTP POST /accounts/signup/ 200 [1.95, 127.0.0.1:51238]
+INFO 2020-05-27 18:46:22,527 runserver 11652 13988 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:22,612 runserver 11652 13988 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:26,380 runserver 11652 13988 HTTP POST /admin/auth/user/?o=-1.2 200 [0.20, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:27,433 runserver 11652 13988 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:27,533 runserver 11652 13988 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:27,621 runserver 11652 13988 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:31,890 runserver 11652 13988 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:31,971 runserver 11652 13988 HTTP GET / 200 [0.06, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:32,910 runserver 11652 13988 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:51332]
+INFO 2020-05-27 18:46:33,896 runserver 11652 13988 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:51332]
+ERROR 2020-05-27 18:46:40,133 log 11652 18868 Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py", line 50, in signup_view
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 477, in parse
+    raise self.error(token, e)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 475, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 528, in autoescape
+    nodelist = parser.parse(('endautoescape',))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 477, in parse
+    raise self.error(token, e)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 475, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\templatetags\i18n.py", line 524, in do_block_translate
+    raise TemplateSyntaxError("'blocktrans' doesn't allow other block tags (seen %r) inside it" % token.contents)
+django.template.exceptions.TemplateSyntaxError: 'blocktrans' doesn't allow other block tags (seen "url 'accounts:activate' uidb64=uid token=token") inside it
+ERROR 2020-05-27 18:46:40,137 runserver 11652 13988 HTTP POST /accounts/signup/ 500 [0.27, 127.0.0.1:51332]
+INFO 2020-05-27 18:49:08,853 autoreload 15600 20368 Watching for file changes with StatReloader
+INFO 2020-05-27 18:50:15,450 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 302 [0.03, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:15,584 runserver 15600 6216 HTTP GET /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 200 [0.11, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:18,548 runserver 15600 6216 HTTP POST /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 302 [0.22, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:18,650 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:18,737 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:22,945 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:23,976 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:24,078 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:24,167 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:27,431 runserver 15600 6216 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:28,319 runserver 15600 6216 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:33,405 runserver 15600 6216 HTTP POST /accounts/signup/ 200 [1.90, 127.0.0.1:51412]
+INFO 2020-05-27 18:50:46,178 runserver 15600 6216 HTTP GET /accounts/activate/MTQ/5gu-cc550dba5a5493a62ce1/ 200 [0.07, 127.0.0.1:51412]
+INFO 2020-05-27 19:10:44,086 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:44,180 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:46,889 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 200 [0.10, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:47,892 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:47,991 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:48,088 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:51,465 runserver 15600 6216 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:51,547 runserver 15600 6216 HTTP GET / 200 [0.06, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:52,396 runserver 15600 6216 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:53,258 runserver 15600 6216 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:52051]
+INFO 2020-05-27 19:10:59,004 runserver 15600 6216 HTTP POST /accounts/signup/ 200 [1.92, 127.0.0.1:52051]
+INFO 2020-05-27 19:12:41,080 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 302 [0.00, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:41,114 runserver 15600 6216 HTTP GET /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 200 [0.01, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:44,673 runserver 15600 6216 HTTP POST /admin/login/?next=/admin/auth/user/%3Fo%3D-1.2 302 [0.22, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:44,780 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:44,880 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:48,715 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:49,756 runserver 15600 6216 HTTP POST /admin/auth/user/?o=-1.2 302 [0.10, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:49,865 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.09, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:49,955 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:52,236 runserver 15600 6216 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:52165]
+INFO 2020-05-27 19:12:59,060 runserver 15600 6216 HTTP POST /accounts/signup/ 200 [1.76, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:47,133 runserver 15600 6216 HTTP GET /admin/auth/user/?o=-1.2 200 [0.08, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:47,221 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:48,757 runserver 15600 6216 HTTP GET /admin/auth/user/16/change/?_changelist_filters=o%3D-1.2 200 [0.12, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:48,814 runserver 15600 6216 HTTP GET /static/admin/js/calendar.js 304 [0.01, 127.0.0.1:52232]
+INFO 2020-05-27 19:13:48,814 runserver 15600 6216 HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:48,815 runserver 15600 6216 HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.01, 127.0.0.1:52233]
+INFO 2020-05-27 19:13:48,817 runserver 15600 6216 HTTP GET /static/admin/js/SelectBox.js 304 [0.01, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,817 runserver 15600 6216 HTTP GET /static/admin/js/SelectFilter2.js 304 [0.01, 127.0.0.1:52235]
+INFO 2020-05-27 19:13:48,827 runserver 15600 6216 HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,837 runserver 15600 6216 HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,847 runserver 15600 6216 HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,858 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52223]
+INFO 2020-05-27 19:13:48,859 runserver 15600 6216 HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,941 runserver 15600 6216 HTTP GET /static/admin/img/icon-unknown.svg 304 [0.01, 127.0.0.1:52223]
+INFO 2020-05-27 19:13:48,943 runserver 15600 6216 HTTP GET /static/admin/img/selector-icons.svg 304 [0.01, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:48,944 runserver 15600 6216 HTTP GET /static/admin/img/icon-clock.svg 304 [0.01, 127.0.0.1:52233]
+INFO 2020-05-27 19:13:48,946 runserver 15600 6216 HTTP GET /static/admin/img/icon-calendar.svg 304 [0.01, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:48,946 runserver 15600 6216 HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.01, 127.0.0.1:52235]
+INFO 2020-05-27 19:13:57,388 runserver 15600 6216 HTTP GET /admin/ 200 [0.07, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:57,442 runserver 15600 6216 HTTP GET /static/admin/css/dashboard.css 304 [0.00, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:57,470 runserver 15600 6216 HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:57,475 runserver 15600 6216 HTTP GET /static/admin/img/icon-deletelink.svg 200 [0.01, 127.0.0.1:52235]
+INFO 2020-05-27 19:13:58,867 runserver 15600 6216 HTTP GET /admin/accounts/userprofile/ 200 [0.09, 127.0.0.1:52235]
+INFO 2020-05-27 19:13:58,921 runserver 15600 6216 HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:58,924 runserver 15600 6216 HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:52232]
+INFO 2020-05-27 19:13:58,925 runserver 15600 6216 HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:52233]
+INFO 2020-05-27 19:13:58,925 runserver 15600 6216 HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:52165]
+INFO 2020-05-27 19:13:58,926 runserver 15600 6216 HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:52223]
+INFO 2020-05-27 19:13:58,931 runserver 15600 6216 HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:52234]
+INFO 2020-05-27 19:13:58,933 runserver 15600 6216 HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:52232]
+INFO 2020-05-27 19:13:58,934 runserver 15600 6216 HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:52233]
+INFO 2020-05-27 19:13:58,965 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52235]
+INFO 2020-05-27 19:13:59,011 runserver 15600 6216 HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:00,225 runserver 15600 6216 HTTP GET /admin/accounts/userprofile/16/change/ 200 [0.09, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:00,317 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:13,911 runserver 15600 6216 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:15,962 runserver 15600 6216 HTTP GET /admin/ 200 [0.07, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:18,709 runserver 15600 6216 HTTP GET /admin/accounts/userprofile/ 200 [0.09, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:18,805 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:21,234 runserver 15600 6216 HTTP GET /admin/ 200 [0.07, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:22,697 runserver 15600 6216 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:22,752 runserver 15600 6216 HTTP GET /static/admin/img/search.svg 304 [0.00, 127.0.0.1:52233]
+INFO 2020-05-27 19:14:22,761 runserver 15600 6216 HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:52233]
+INFO 2020-05-27 19:14:22,790 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:22,826 runserver 15600 6216 HTTP GET /static/admin/img/sorting-icons.svg 304 [0.00, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:24,502 runserver 15600 6216 HTTP GET /admin/auth/user/16/change/ 200 [0.11, 127.0.0.1:52235]
+INFO 2020-05-27 19:14:24,605 runserver 15600 6216 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52235]
+INFO 2020-05-27 19:16:47,277 autoreload 15600 20368 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 19:16:48,470 autoreload 7176 8768 Watching for file changes with StatReloader
+INFO 2020-05-27 19:17:19,465 runserver 7176 16696 HTTP GET /accounts/login/ 200 [0.03, 127.0.0.1:52385]
+INFO 2020-05-27 19:17:20,257 runserver 7176 16696 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:52385]
+INFO 2020-05-27 19:17:25,679 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52385]
+INFO 2020-05-27 19:17:57,450 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js.map 200 [0.01, 127.0.0.1:52385]
+INFO 2020-05-27 19:17:57,459 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css.map 200 [0.01, 127.0.0.1:52423]
+INFO 2020-05-27 19:20:16,844 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52518]
+INFO 2020-05-27 19:20:16,907 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.01, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:16,910 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.02, 127.0.0.1:52518]
+INFO 2020-05-27 19:20:16,921 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.02, 127.0.0.1:52522]
+INFO 2020-05-27 19:20:16,924 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52523]
+INFO 2020-05-27 19:20:16,926 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52524]
+INFO 2020-05-27 19:20:16,928 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.03, 127.0.0.1:52525]
+INFO 2020-05-27 19:20:16,930 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.02, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:16,931 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.02, 127.0.0.1:52518]
+INFO 2020-05-27 19:20:18,692 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [1.67, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:18,715 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:30,477 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:30,535 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.02, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:30,538 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.02, 127.0.0.1:52518]
+INFO 2020-05-27 19:20:30,539 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.02, 127.0.0.1:52525]
+INFO 2020-05-27 19:20:30,541 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52522]
+INFO 2020-05-27 19:20:30,544 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52524]
+INFO 2020-05-27 19:20:30,547 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52523]
+INFO 2020-05-27 19:20:30,550 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.02, 127.0.0.1:52519]
+INFO 2020-05-27 19:20:30,553 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.01, 127.0.0.1:52525]
+INFO 2020-05-27 19:20:30,660 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.01, 127.0.0.1:52525]
+INFO 2020-05-27 19:20:30,714 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:25,263 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:25,435 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:42,309 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.15, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:42,371 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.02, 127.0.0.1:52591]
+INFO 2020-05-27 19:21:42,372 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.02, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:42,374 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.02, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:42,382 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52597]
+INFO 2020-05-27 19:21:42,382 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52595]
+INFO 2020-05-27 19:21:42,386 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52596]
+INFO 2020-05-27 19:21:42,391 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:42,392 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.01, 127.0.0.1:52591]
+INFO 2020-05-27 19:21:42,493 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.00, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:42,543 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:51,100 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:51,179 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:51,181 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.01, 127.0.0.1:52591]
+INFO 2020-05-27 19:21:51,185 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52525]
+INFO 2020-05-27 19:21:51,185 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52595]
+INFO 2020-05-27 19:21:51,188 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52597]
+INFO 2020-05-27 19:21:51,188 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.02, 127.0.0.1:52596]
+INFO 2020-05-27 19:21:51,224 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:21:51,227 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.01, 127.0.0.1:52591]
+INFO 2020-05-27 19:21:51,292 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.01, 127.0.0.1:52591]
+INFO 2020-05-27 19:21:51,371 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.00, 127.0.0.1:52591]
+INFO 2020-05-27 19:22:03,087 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52591]
+INFO 2020-05-27 19:22:03,147 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:22:03,148 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.02, 127.0.0.1:52597]
+INFO 2020-05-27 19:22:03,153 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52595]
+INFO 2020-05-27 19:22:03,158 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52596]
+INFO 2020-05-27 19:22:03,163 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.03, 127.0.0.1:52591]
+INFO 2020-05-27 19:22:03,165 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.03, 127.0.0.1:52525]
+INFO 2020-05-27 19:22:03,168 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.02, 127.0.0.1:52597]
+INFO 2020-05-27 19:22:03,168 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.02, 127.0.0.1:52594]
+INFO 2020-05-27 19:22:03,286 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:22:03,327 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52594]
+INFO 2020-05-27 19:23:42,168 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:42,313 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.00, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:43,840 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:43,896 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.01, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:43,897 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.02, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:43,903 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52715]
+INFO 2020-05-27 19:23:43,904 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.02, 127.0.0.1:52716]
+INFO 2020-05-27 19:23:43,905 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.02, 127.0.0.1:52708]
+INFO 2020-05-27 19:23:43,909 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52717]
+INFO 2020-05-27 19:23:43,914 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.01, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:43,917 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.01, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:44,019 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.01, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:44,066 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:56,017 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:56,076 runserver 7176 16696 HTTP GET /static/css/icons.css 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:23:56,077 runserver 7176 16696 HTTP GET /static/css/text.css 200 [0.02, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:56,079 runserver 7176 16696 HTTP GET /static/font-awesome/css/all.css 200 [0.01, 127.0.0.1:52708]
+INFO 2020-05-27 19:23:56,084 runserver 7176 16696 HTTP GET /static/css/scrollBar.css 200 [0.02, 127.0.0.1:52707]
+INFO 2020-05-27 19:23:56,085 runserver 7176 16696 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.02, 127.0.0.1:52716]
+INFO 2020-05-27 19:23:56,085 runserver 7176 16696 HTTP GET /static/bootstrap/css/bootstrap.min.css 200 [0.02, 127.0.0.1:52715]
+INFO 2020-05-27 19:23:56,095 runserver 7176 16696 HTTP GET /static/js/site.js 200 [0.01, 127.0.0.1:52714]
+INFO 2020-05-27 19:23:56,096 runserver 7176 16696 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:23:56,191 runserver 7176 16696 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:23:56,238 runserver 7176 16696 HTTP GET /media/favicon.ico 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:46,219 runserver 7176 16696 HTTP GET /admin/ 200 [0.13, 127.0.0.1:52717]
+WARNING 2020-05-27 19:24:46,332 log 7176 12176 Not Found: /favicon.ico
+WARNING 2020-05-27 19:24:46,334 runserver 7176 16696 HTTP GET /favicon.ico 404 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:47,318 runserver 7176 16696 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:47,414 runserver 7176 16696 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:52,685 runserver 7176 16696 HTTP POST /admin/auth/user/ 200 [0.10, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:53,756 runserver 7176 16696 HTTP POST /admin/auth/user/ 302 [0.10, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:53,860 runserver 7176 16696 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:52717]
+INFO 2020-05-27 19:24:53,951 runserver 7176 16696 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:01,728 runserver 7176 16696 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:01,810 runserver 7176 16696 HTTP GET / 200 [0.06, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:04,131 runserver 7176 16696 HTTP GET /accounts/login/ 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:04,940 runserver 7176 16696 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:09,513 runserver 7176 16696 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:52717]
+INFO 2020-05-27 19:25:21,498 autoreload 7176 8768 D:\DEV\LAB_3_Twitter\Twitter\accounts\views\auth_view.py changed, reloading.
+INFO 2020-05-27 19:25:22,630 autoreload 11648 2476 Watching for file changes with StatReloader
+INFO 2020-05-27 19:25:28,343 runserver 11648 15976 HTTP GET / 200 [0.08, 127.0.0.1:52809]
+INFO 2020-05-27 19:25:29,813 runserver 11648 15976 HTTP GET /accounts/login/ 200 [0.02, 127.0.0.1:52809]
+INFO 2020-05-27 19:25:30,616 runserver 11648 15976 HTTP GET /accounts/signup/ 200 [0.01, 127.0.0.1:52809]
+INFO 2020-05-27 19:25:37,259 runserver 11648 15976 HTTP POST /accounts/signup/ 200 [1.81, 127.0.0.1:52809]
+INFO 2020-05-27 19:25:45,494 runserver 11648 15976 HTTP GET /accounts/activate/MTc/5gu-44a83b875a6ad5cbfb41/ 200 [0.07, 127.0.0.1:52809]
+INFO 2020-05-27 19:25:49,686 runserver 11648 15976 HTTP POST /accounts/login/ 200 [0.01, 127.0.0.1:52809]
+INFO 2020-05-27 22:05:50,892 autoreload 11896 15040 Watching for file changes with StatReloader
+INFO 2020-05-27 22:05:53,020 runserver 11896 1948 HTTP GET / 200 [0.14, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:57,689 runserver 11896 1948 HTTP GET /admin/ 302 [0.02, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,574 runserver 11896 1948 HTTP GET /admin/login/?next=/admin/ 200 [0.85, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,664 runserver 11896 1948 HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,672 runserver 11896 1948 HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:54001]
+INFO 2020-05-27 22:05:58,673 runserver 11896 1948 HTTP GET /static/admin/css/login.css 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,685 runserver 11896 1948 HTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,745 runserver 11896 1948 HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:05:58,749 runserver 11896 1948 HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:54001]
+WARNING 2020-05-27 22:05:58,804 log 11896 18376 Not Found: /favicon.ico
+WARNING 2020-05-27 22:05:58,808 runserver 11896 1948 HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:02,457 runserver 11896 1948 HTTP POST /admin/login/?next=/admin/ 302 [0.67, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:02,674 runserver 11896 1948 HTTP GET /admin/ 200 [0.18, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:02,737 runserver 11896 1948 HTTP GET /static/admin/css/dashboard.css 304 [0.00, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:02,781 runserver 11896 1948 HTTP GET /static/admin/img/icon-addlink.svg 304 [0.01, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:02,781 runserver 11896 1948 HTTP GET /static/admin/img/icon-changelink.svg 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:02,781 runserver 11896 1948 HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.01, 127.0.0.1:54013]
+INFO 2020-05-27 22:06:02,794 runserver 11896 1948 HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.00, 127.0.0.1:54013]
+INFO 2020-05-27 22:06:04,798 runserver 11896 1948 HTTP GET /admin/e_mail/mail/ 200 [0.21, 127.0.0.1:54013]
+INFO 2020-05-27 22:06:04,878 runserver 11896 1948 HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:54013]
+INFO 2020-05-27 22:06:04,882 runserver 11896 1948 HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:54017]
+INFO 2020-05-27 22:06:04,882 runserver 11896 1948 HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:04,886 runserver 11896 1948 HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:54018]
+INFO 2020-05-27 22:06:04,890 runserver 11896 1948 HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:54019]
+INFO 2020-05-27 22:06:04,893 runserver 11896 1948 HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:54013]
+INFO 2020-05-27 22:06:04,896 runserver 11896 1948 HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:54017]
+INFO 2020-05-27 22:06:04,897 runserver 11896 1948 HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:04,899 runserver 11896 1948 HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:54018]
+INFO 2020-05-27 22:06:05,091 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.22, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:05,174 runserver 11896 1948 HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:09,341 runserver 11896 1948 HTTP GET /admin/e_mail/mail/add/ 200 [0.35, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:09,413 runserver 11896 1948 HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:54001]
+INFO 2020-05-27 22:06:09,415 runserver 11896 1948 HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.01, 127.0.0.1:54017]
+INFO 2020-05-27 22:06:09,415 runserver 11896 1948 HTTP GET /static/admin/js/calendar.js 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:09,426 runserver 11896 1948 HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:09,437 runserver 11896 1948 HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:09,457 runserver 11896 1948 HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:09,499 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:54018]
+INFO 2020-05-27 22:06:09,614 runserver 11896 1948 HTTP GET /static/admin/img/icon-calendar.svg 304 [0.01, 127.0.0.1:54018]
+INFO 2020-05-27 22:06:09,615 runserver 11896 1948 HTTP GET /static/admin/img/icon-clock.svg 304 [0.01, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:37,443 runserver 11896 1948 HTTP GET /admin/accounts/userprofile/add/?_to_field=id&_popup=1 200 [0.21, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:37,607 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:47,678 runserver 11896 1948 HTTP GET /admin/accounts/userprofile/add/?_to_field=id&_popup=1 200 [0.15, 127.0.0.1:54000]
+INFO 2020-05-27 22:06:47,865 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.12, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:04,030 runserver 11896 1948 HTTP POST /admin/accounts/userprofile/add/?_to_field=id&_popup=1 200 [0.25, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:04,189 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:10,671 runserver 11896 1948 HTTP POST /admin/accounts/userprofile/add/?_to_field=id&_popup=1 200 [0.13, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:10,851 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.12, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:28,302 runserver 11896 1948 HTTP POST /admin/e_mail/mail/add/ 302 [0.16, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:28,565 runserver 11896 1948 HTTP GET /admin/e_mail/mail/ 200 [0.22, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:28,724 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:28,778 runserver 11896 1948 HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:31,116 runserver 11896 1948 HTTP GET /admin/e_mail/mail/1/change/ 200 [0.22, 127.0.0.1:54000]
+INFO 2020-05-27 22:07:31,282 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:54000]
+INFO 2020-05-27 22:08:06,311 runserver 11896 1948 HTTP GET /admin/e_mail/mail/ 200 [0.09, 127.0.0.1:54000]
+INFO 2020-05-27 22:08:06,465 runserver 11896 1948 HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:54000]
+INFO 2020-05-27 22:09:31,340 autoreload 11896 15040 D:\DEV\LAB_3_Twitter\Twitter\Twitter\admin.py changed, reloading.
+INFO 2020-05-27 22:09:33,987 autoreload 1604 6444 Watching for file changes with StatReloader
+INFO 2020-05-27 22:10:27,368 autoreload 1604 6444 D:\DEV\LAB_3_Twitter\Twitter\Twitter\admin.py changed, reloading.
+INFO 2020-05-27 22:10:30,030 autoreload 10536 11328 Watching for file changes with StatReloader
+INFO 2020-05-27 22:10:48,722 autoreload 10536 11328 D:\DEV\LAB_3_Twitter\Twitter\Twitter\admin.py changed, reloading.
+INFO 2020-05-27 22:10:51,346 autoreload 4076 17176 Watching for file changes with StatReloader
+INFO 2020-05-27 22:11:01,614 autoreload 4076 17176 D:\DEV\LAB_3_Twitter\Twitter\Twitter\admin.py changed, reloading.
+INFO 2020-05-27 22:11:04,287 autoreload 19876 9688 Watching for file changes with StatReloader
+INFO 2020-05-27 22:14:04,452 autoreload 8972 7396 Watching for file changes with StatReloader
+INFO 2020-05-27 22:14:06,302 runserver 8972 16792 HTTP GET / 200 [0.15, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:08,082 runserver 8972 16792 HTTP GET /admin/e_mail/mail/ 200 [0.22, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:08,187 runserver 8972 16792 HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:09,294 runserver 8972 16792 HTTP GET /admin/ 200 [0.08, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:17,496 runserver 8972 16792 HTTP GET /admin/e_mail/mail/ 200 [0.23, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:17,665 runserver 8972 16792 HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:20,583 runserver 8972 16792 HTTP GET /admin/e_mail/mail/1/change/ 200 [0.24, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:20,694 runserver 8972 16792 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:54163]
+ERROR 2020-05-27 22:14:33,759 log 8972 17176 Internal Server Error: /admin/e_mail/mail/1/change/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1572, in _changeform_view
+    self.log_change(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 823, in log_change
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 22:14:33,774 runserver 8972 16792 HTTP POST /admin/e_mail/mail/1/change/ 500 [2.04, 127.0.0.1:54163]
+INFO 2020-05-27 22:14:51,347 runserver 8972 16792 HTTP GET /admin/e_mail/mail/1/change/ 200 [0.25, 127.0.0.1:54163]
+ERROR 2020-05-27 22:14:57,571 log 8972 17176 Internal Server Error: /admin/e_mail/mail/1/change/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1572, in _changeform_view
+    self.log_change(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 823, in log_change
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 22:14:57,578 runserver 8972 16792 HTTP POST /admin/e_mail/mail/1/change/ 500 [0.44, 127.0.0.1:54163]
+INFO 2020-05-27 22:20:37,782 autoreload 9948 9732 Watching for file changes with StatReloader
+INFO 2020-05-27 22:20:48,402 runserver 9948 3160 HTTP GET /admin/e_mail/mail/1/change/ 200 [0.53, 127.0.0.1:54307]
+ERROR 2020-05-27 22:20:54,720 log 9948 9400 Internal Server Error: /admin/e_mail/mail/1/change/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1572, in _changeform_view
+    self.log_change(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 823, in log_change
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 22:20:54,731 runserver 9948 3160 HTTP POST /admin/e_mail/mail/1/change/ 500 [0.57, 127.0.0.1:54307]
+INFO 2020-05-27 22:21:57,005 autoreload 4280 12340 Watching for file changes with StatReloader
+INFO 2020-05-27 22:21:59,871 runserver 4280 168 HTTP GET /admin/e_mail/mail/1/change/ 200 [1.41, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:00,011 runserver 4280 168 HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:02,935 runserver 4280 168 HTTP POST /admin/e_mail/mail/1/change/ 302 [0.10, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:03,156 runserver 4280 168 HTTP GET /admin/e_mail/mail/ 200 [0.20, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:03,335 runserver 4280 168 HTTP GET /admin/jsi18n/ 200 [0.13, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:16,669 runserver 4280 168 HTTP GET /admin/e_mail/mail/add/ 200 [0.33, 127.0.0.1:54357]
+INFO 2020-05-27 22:22:16,868 runserver 4280 168 HTTP GET /admin/jsi18n/ 200 [0.13, 127.0.0.1:54357]
+ERROR 2020-05-27 22:22:40,881 log 4280 11688 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 22:22:40,907 runserver 4280 168 HTTP POST /admin/e_mail/mail/add/ 500 [0.70, 127.0.0.1:54357]
+INFO 2020-05-27 22:25:13,821 autoreload 4280 12340 D:\DEV\LAB_3_Twitter\Twitter\Twitter\admin.py changed, reloading.
+INFO 2020-05-27 22:25:18,287 autoreload 15752 6444 Watching for file changes with StatReloader
+INFO 2020-05-27 22:55:40,495 autoreload 20144 18396 Watching for file changes with StatReloader
+INFO 2020-05-27 22:55:42,790 runserver 20144 17096 HTTP GET / 200 [0.10, 127.0.0.1:55032]
+INFO 2020-05-27 22:55:42,907 runserver 20144 17096 HTTP GET /static/css/site.css 304 [0.00, 127.0.0.1:55032]
+INFO 2020-05-27 22:55:42,909 runserver 20144 17096 HTTP GET /static/js/autoload.js 304 [0.00, 127.0.0.1:55035]
+INFO 2020-05-27 22:55:42,910 runserver 20144 17096 HTTP GET /static/css/textarea.css 304 [0.01, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:47,617 runserver 20144 17096 HTTP GET /admin/ 200 [0.13, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:55,686 runserver 20144 17096 HTTP GET /admin/accounts/userprofile/ 200 [0.10, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:55,798 runserver 20144 17096 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:57,330 runserver 20144 17096 HTTP GET /admin/accounts/userprofile/17/change/ 200 [0.09, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:57,418 runserver 20144 17096 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55033]
+INFO 2020-05-27 22:55:59,546 runserver 20144 17096 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:00,456 runserver 20144 17096 HTTP GET /admin/accounts/userprofile/6/change/ 200 [0.09, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:00,542 runserver 20144 17096 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:02,097 runserver 20144 17096 HTTP GET /admin/accounts/userprofile/ 200 [0.09, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:03,241 runserver 20144 17096 HTTP GET /admin/ 200 [0.06, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:07,400 runserver 20144 17096 HTTP GET /admin/e_mail/mail/ 200 [0.08, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:07,500 runserver 20144 17096 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:11,979 runserver 20144 17096 HTTP GET /admin/e_mail/mail/add/ 200 [0.08, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:12,025 runserver 20144 17096 HTTP GET /static/admin/js/SelectBox.js 304 [0.00, 127.0.0.1:55035]
+INFO 2020-05-27 22:56:12,026 runserver 20144 17096 HTTP GET /static/admin/js/SelectFilter2.js 304 [0.00, 127.0.0.1:55032]
+INFO 2020-05-27 22:56:12,072 runserver 20144 17096 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:12,185 runserver 20144 17096 HTTP GET /static/admin/img/selector-icons.svg 304 [0.01, 127.0.0.1:55035]
+INFO 2020-05-27 22:56:12,185 runserver 20144 17096 HTTP GET /static/admin/img/search.svg 304 [0.01, 127.0.0.1:55032]
+INFO 2020-05-27 22:56:12,185 runserver 20144 17096 HTTP GET /static/admin/img/icon-unknown.svg 304 [0.01, 127.0.0.1:55033]
+INFO 2020-05-27 22:56:12,185 runserver 20144 17096 HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.00, 127.0.0.1:55068]
+ERROR 2020-05-27 22:56:37,565 log 20144 15460 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('accounts/email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 22:56:37,570 runserver 20144 17096 HTTP POST /admin/e_mail/mail/add/ 500 [0.12, 127.0.0.1:55035]
+INFO 2020-05-27 22:58:57,422 autoreload 20252 20376 Watching for file changes with StatReloader
+INFO 2020-05-27 23:03:42,140 autoreload 15620 16532 Watching for file changes with StatReloader
+INFO 2020-05-27 23:03:48,240 runserver 15620 17076 HTTP GET / 200 [0.24, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:50,797 runserver 15620 17076 HTTP POST /accounts/logout/ 302 [0.06, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:50,908 runserver 15620 17076 HTTP GET / 200 [0.09, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:53,588 runserver 15620 17076 HTTP GET /accounts/login/ 200 [1.70, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:55,922 runserver 15620 17076 HTTP GET /accounts/signup/ 200 [0.03, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:59,806 runserver 15620 17076 HTTP GET /admin/e_mail/mail/add/ 302 [0.07, 127.0.0.1:55275]
+INFO 2020-05-27 23:03:59,941 runserver 15620 17076 HTTP GET /admin/login/?next=/admin/e_mail/mail/add/ 200 [0.11, 127.0.0.1:55275]
+INFO 2020-05-27 23:04:03,115 runserver 15620 17076 HTTP POST /admin/login/?next=/admin/e_mail/mail/add/ 302 [0.25, 127.0.0.1:55275]
+INFO 2020-05-27 23:04:03,428 runserver 15620 17076 HTTP GET /admin/e_mail/mail/add/ 200 [0.29, 127.0.0.1:55275]
+INFO 2020-05-27 23:04:03,655 runserver 15620 17076 HTTP GET /admin/jsi18n/ 200 [0.18, 127.0.0.1:55275]
+INFO 2020-05-27 23:05:54,205 autoreload 7240 3412 Watching for file changes with StatReloader
+INFO 2020-05-27 23:05:55,264 runserver 7240 14312 HTTP GET /admin/e_mail/mail/add/ 200 [0.57, 127.0.0.1:55342]
+INFO 2020-05-27 23:05:55,395 runserver 7240 14312 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:55342]
+INFO 2020-05-27 23:06:01,056 runserver 7240 14312 HTTP POST /admin/e_mail/mail/add/ 200 [0.17, 127.0.0.1:55342]
+INFO 2020-05-27 23:06:01,161 runserver 7240 14312 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:55342]
+INFO 2020-05-27 23:17:46,850 autoreload 14504 1648 Watching for file changes with StatReloader
+INFO 2020-05-27 23:17:57,569 runserver 14504 7360 HTTP GET / 200 [0.10, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:02,656 runserver 14504 7360 HTTP GET /admin/ 200 [0.13, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:07,319 runserver 14504 7360 HTTP GET /admin/e_mail/mail/ 200 [0.08, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:07,514 runserver 14504 7360 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:09,621 runserver 14504 7360 HTTP GET /admin/e_mail/mail/add/ 200 [0.08, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:09,807 runserver 14504 7360 HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:55607]
+ERROR 2020-05-27 23:18:15,296 log 14504 17468 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 25, in send
+    'message': self.text,
+AttributeError: 'Mail' object has no attribute 'text'
+ERROR 2020-05-27 23:18:15,302 runserver 14504 7360 HTTP POST /admin/e_mail/mail/add/ 500 [0.11, 127.0.0.1:55607]
+INFO 2020-05-27 23:18:37,855 autoreload 14504 1648 D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py changed, reloading.
+INFO 2020-05-27 23:18:38,993 autoreload 3952 20416 Watching for file changes with StatReloader
+INFO 2020-05-27 23:18:39,593 runserver 3952 12436 HTTP GET /admin/e_mail/mail/add/ 200 [0.18, 127.0.0.1:55639]
+ERROR 2020-05-27 23:18:42,833 log 3952 13420 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('emails/verify_email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 23:18:42,839 runserver 3952 12436 HTTP POST /admin/e_mail/mail/add/ 500 [0.13, 127.0.0.1:55639]
+INFO 2020-05-27 23:19:11,942 autoreload 3952 20416 D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py changed, reloading.
+INFO 2020-05-27 23:19:13,107 autoreload 15084 9152 Watching for file changes with StatReloader
+INFO 2020-05-27 23:19:13,720 runserver 15084 4760 HTTP GET /admin/e_mail/mail/add/ 200 [0.18, 127.0.0.1:55662]
+ERROR 2020-05-27 23:19:16,112 log 15084 16240 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('emails/message_email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 23:19:16,117 runserver 15084 4760 HTTP POST /admin/e_mail/mail/add/ 500 [0.12, 127.0.0.1:55662]
+INFO 2020-05-27 23:19:25,925 autoreload 11368 4968 Watching for file changes with StatReloader
+INFO 2020-05-27 23:19:28,161 runserver 11368 12856 HTTP GET / 200 [0.11, 127.0.0.1:55681]
+INFO 2020-05-27 23:19:32,042 runserver 11368 12856 HTTP GET /admin/ 200 [0.18, 127.0.0.1:55681]
+INFO 2020-05-27 23:19:37,811 runserver 11368 12856 HTTP GET /admin/e_mail/mail/ 200 [0.07, 127.0.0.1:55681]
+INFO 2020-05-27 23:19:37,911 runserver 11368 12856 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55681]
+INFO 2020-05-27 23:19:39,956 runserver 11368 12856 HTTP GET /admin/e_mail/mail/add/ 200 [0.09, 127.0.0.1:55681]
+INFO 2020-05-27 23:19:40,046 runserver 11368 12856 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55681]
+ERROR 2020-05-27 23:19:45,386 log 11368 6752 Internal Server Error: /admin/e_mail/mail/add/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1638, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 1569, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\admin\options.py", line 807, in log_addition
+    object_repr=str(object),
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 19, in __str__
+    self.send()
+  File "D:\DEV\LAB_3_Twitter\Twitter\e_mail\models.py", line 24, in send
+    message = render_to_string('emails/message_email.html', {
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 37, in render
+    output = self.nodelist.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\template\defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\base.py", line 87, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\urls\resolvers.py", line 677, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'activate' with keyword arguments '{'uidb64': '', 'token': ''}' not found. 1 pattern(s) tried: ['accounts/activate/(?P<uidb64>[^/]+)/(?P<token>[^/]+)/$']
+ERROR 2020-05-27 23:19:45,390 runserver 11368 12856 HTTP POST /admin/e_mail/mail/add/ 500 [0.11, 127.0.0.1:55681]
+INFO 2020-05-27 23:20:02,544 runserver 11368 12856 HTTP GET /admin/e_mail/mail/add/ 200 [0.08, 127.0.0.1:55681]
+INFO 2020-05-27 23:20:07,361 runserver 11368 12856 HTTP POST /admin/e_mail/mail/add/ 302 [2.79, 127.0.0.1:55681]
+INFO 2020-05-27 23:20:07,470 runserver 11368 12856 HTTP GET /admin/e_mail/mail/ 200 [0.07, 127.0.0.1:55681]
+INFO 2020-05-27 23:20:07,563 runserver 11368 12856 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:55681]
+ERROR 2020-05-28 01:11:08,358 log 1740 2284 Internal Server Error: /twit/delete/1
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twits.py", line 54, in delete_twit
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 01:11:09,509 log 1740 2284 Not Found: /search/find-by/name
+WARNING 2020-05-28 01:11:09,510 log 1740 2284 Not Found: /search/find-by/name
+WARNING 2020-05-28 01:11:09,511 log 1740 2284 Not Found: /search/find-by/username
+WARNING 2020-05-28 01:11:09,512 log 1740 2284 Not Found: /search/find-by/username
+ERROR 2020-05-28 01:11:09,688 log 1740 2284 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR 2020-05-28 01:11:09,863 log 1740 2284 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 01:59:55,788 log 940 10812 Not Found: /search/find-by/name
+WARNING 2020-05-28 01:59:55,789 log 940 10812 Not Found: /search/find-by/name
+WARNING 2020-05-28 01:59:55,790 log 940 10812 Not Found: /search/find-by/username
+WARNING 2020-05-28 01:59:55,791 log 940 10812 Not Found: /search/find-by/username
+ERROR 2020-05-28 01:59:55,800 log 940 10812 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR 2020-05-28 01:59:55,811 log 940 10812 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+INFO 2020-05-28 10:45:51,165 autoreload 4924 9392 Watching for file changes with StatReloader
+INFO 2020-05-28 10:46:03,836 runserver 4924 20008 HTTP GET / 200 [0.16, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:03,903 runserver 4924 20008 HTTP GET /static/css/site.css 304 [0.01, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:03,905 runserver 4924 20008 HTTP GET /static/js/csrf.js 304 [0.01, 127.0.0.1:58814]
+INFO 2020-05-28 10:46:03,908 runserver 4924 20008 HTTP GET /static/js/SetLike.js 304 [0.01, 127.0.0.1:58817]
+INFO 2020-05-28 10:46:03,909 runserver 4924 20008 HTTP GET /static/js/twit.js 304 [0.01, 127.0.0.1:58818]
+INFO 2020-05-28 10:46:03,914 runserver 4924 20008 HTTP GET /static/js/site.js 304 [0.01, 127.0.0.1:58819]
+INFO 2020-05-28 10:46:03,917 runserver 4924 20008 HTTP GET /static/js/autoload.js 304 [0.01, 127.0.0.1:58820]
+INFO 2020-05-28 10:46:03,919 runserver 4924 20008 HTTP GET /static/js/preloader.js 304 [0.01, 127.0.0.1:58814]
+INFO 2020-05-28 10:46:03,920 runserver 4924 20008 HTTP GET /static/js/bookmark.js 304 [0.01, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:06,314 runserver 4924 20008 HTTP POST /accounts/logout/ 302 [0.05, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:06,394 runserver 4924 20008 HTTP GET / 200 [0.06, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:07,711 runserver 4924 20008 HTTP GET /accounts/login/ 200 [0.03, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:08,472 runserver 4924 20008 HTTP GET /accounts/signup/ 200 [0.02, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:15,667 runserver 4924 20008 HTTP POST /accounts/signup/ 200 [0.06, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:21,251 runserver 4924 20008 HTTP POST /accounts/signup/ 200 [0.05, 127.0.0.1:58813]
+INFO 2020-05-28 10:46:28,341 runserver 4924 20008 HTTP POST /accounts/signup/ 200 [2.18, 127.0.0.1:58813]
+INFO 2020-05-28 10:57:35,218 autoreload 9208 928 Watching for file changes with StatReloader
+INFO 2020-05-28 10:57:38,681 runserver 9208 10020 HTTP GET / 200 [0.10, 127.0.0.1:59036]
+INFO 2020-05-28 10:57:43,324 runserver 9208 10020 HTTP GET /admin/ 302 [0.02, 127.0.0.1:59036]
+INFO 2020-05-28 10:57:43,616 runserver 9208 10020 HTTP GET /admin/login/?next=/admin/ 200 [0.27, 127.0.0.1:59036]
+INFO 2020-05-28 10:57:43,659 runserver 9208 10020 HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:59036]
+INFO 2020-05-28 10:57:43,661 runserver 9208 10020 HTTP GET /static/admin/css/login.css 304 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:43,663 runserver 9208 10020 HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:59069]
+INFO 2020-05-28 10:57:43,691 runserver 9208 10020 HTTP GET /static/admin/css/fonts.css 304 [0.00, 127.0.0.1:59069]
+INFO 2020-05-28 10:57:43,724 runserver 9208 10020 HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.00, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:43,725 runserver 9208 10020 HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.00, 127.0.0.1:59069]
+WARNING 2020-05-28 10:57:43,758 log 9208 19664 Not Found: /favicon.ico
+WARNING 2020-05-28 10:57:43,761 runserver 9208 10020 HTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:48,377 runserver 9208 10020 HTTP POST /admin/login/?next=/admin/ 200 [0.23, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:48,458 runserver 9208 10020 HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.00, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:51,448 runserver 9208 10020 HTTP POST /admin/login/?next=/admin/ 200 [0.23, 127.0.0.1:59037]
+INFO 2020-05-28 10:57:57,034 runserver 9208 10020 HTTP POST /admin/login/?next=/admin/ 200 [0.22, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:27,269 runserver 9208 10020 HTTP POST /admin/login/?next=/admin/ 200 [0.22, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:57,878 runserver 9208 10020 HTTP POST /admin/login/?next=/admin/ 302 [0.23, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:57,966 runserver 9208 10020 HTTP GET /admin/ 200 [0.07, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:58,019 runserver 9208 10020 HTTP GET /static/admin/css/dashboard.css 304 [0.00, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:58,048 runserver 9208 10020 HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:59037]
+INFO 2020-05-28 10:58:58,049 runserver 9208 10020 HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:00,085 runserver 9208 10020 HTTP GET /admin/auth/user/ 200 [0.21, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:00,125 runserver 9208 10020 HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:00,141 runserver 9208 10020 HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:59:00,142 runserver 9208 10020 HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:59106]
+INFO 2020-05-28 10:59:00,143 runserver 9208 10020 HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:00,148 runserver 9208 10020 HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:59108]
+INFO 2020-05-28 10:59:00,148 runserver 9208 10020 HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:00,153 runserver 9208 10020 HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:59106]
+INFO 2020-05-28 10:59:00,154 runserver 9208 10020 HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:59:00,154 runserver 9208 10020 HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:00,163 runserver 9208 10020 HTTP GET /static/admin/img/search.svg 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:00,171 runserver 9208 10020 HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:00,179 runserver 9208 10020 HTTP GET /static/admin/img/icon-no.svg 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:00,186 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:00,232 runserver 9208 10020 HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:00,233 runserver 9208 10020 HTTP GET /static/admin/img/sorting-icons.svg 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:09,507 runserver 9208 10020 HTTP GET /admin/ 200 [0.06, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:14,398 runserver 9208 10020 HTTP GET /admin/accounts/userprofile/ 200 [0.08, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:14,491 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:15,796 runserver 9208 10020 HTTP GET /admin/ 200 [0.07, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:16,812 runserver 9208 10020 HTTP GET /admin/e_mail/mail/ 200 [0.08, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:16,903 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,021 runserver 9208 10020 HTTP GET /admin/e_mail/mail/add/ 200 [0.09, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,074 runserver 9208 10020 HTTP GET /static/admin/js/SelectFilter2.js 304 [0.00, 127.0.0.1:59108]
+INFO 2020-05-28 10:59:20,075 runserver 9208 10020 HTTP GET /static/admin/js/calendar.js 304 [0.01, 127.0.0.1:59106]
+INFO 2020-05-28 10:59:20,078 runserver 9208 10020 HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:59:20,079 runserver 9208 10020 HTTP GET /static/admin/js/SelectBox.js 304 [0.01, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:20,080 runserver 9208 10020 HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,090 runserver 9208 10020 HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:20,091 runserver 9208 10020 HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,099 runserver 9208 10020 HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,233 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.17, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:20,296 runserver 9208 10020 HTTP GET /static/admin/img/icon-calendar.svg 304 [0.00, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:20,310 runserver 9208 10020 HTTP GET /static/admin/img/icon-clock.svg 304 [0.01, 127.0.0.1:59107]
+INFO 2020-05-28 10:59:20,311 runserver 9208 10020 HTTP GET /static/admin/img/icon-unknown.svg 304 [0.01, 127.0.0.1:59099]
+INFO 2020-05-28 10:59:20,311 runserver 9208 10020 HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.01, 127.0.0.1:59037]
+INFO 2020-05-28 10:59:20,312 runserver 9208 10020 HTTP GET /static/admin/img/selector-icons.svg 304 [0.01, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:34,885 runserver 9208 10020 HTTP POST /admin/e_mail/mail/add/ 302 [1.65, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:34,985 runserver 9208 10020 HTTP GET /admin/e_mail/mail/ 200 [0.08, 127.0.0.1:59109]
+INFO 2020-05-28 10:59:35,088 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:17,040 runserver 9208 10020 HTTP GET /admin/ 200 [0.07, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:18,244 runserver 9208 10020 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:18,336 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:20,955 runserver 9208 10020 HTTP GET /admin/auth/user/18/change/ 200 [0.12, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:21,050 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:22,885 runserver 9208 10020 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:24,060 runserver 9208 10020 HTTP GET /admin/auth/user/17/change/ 200 [0.12, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:24,146 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:26,069 runserver 9208 10020 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:27,328 runserver 9208 10020 HTTP GET /admin/auth/user/19/change/ 200 [0.12, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:27,413 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:29,219 runserver 9208 10020 HTTP GET /admin/auth/user/ 200 [0.08, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:31,551 runserver 9208 10020 HTTP GET /admin/auth/user/19/change/ 200 [0.11, 127.0.0.1:59109]
+INFO 2020-05-28 11:00:31,639 runserver 9208 10020 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:59109]
+WARNING 2020-05-28 11:04:41,634 log 13736 20120 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:04:41,635 log 13736 20120 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:04:41,635 log 13736 20120 Not Found: /search/find-by/username
+WARNING 2020-05-28 11:04:41,636 log 13736 20120 Not Found: /search/find-by/username
+ERROR 2020-05-28 11:04:41,648 log 13736 20120 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR 2020-05-28 11:04:41,725 log 13736 20120 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 11:10:24,523 log 13672 17676 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:10:24,524 log 13672 17676 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:10:24,525 log 13672 17676 Not Found: /search/find-by/username
+WARNING 2020-05-28 11:10:24,526 log 13672 17676 Not Found: /search/find-by/username
+ERROR 2020-05-28 11:10:24,538 log 13672 17676 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+ERROR 2020-05-28 11:10:24,617 log 13672 17676 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "d:\dev\lab_3_twitter\twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 11:17:48,681 log 15044 18600 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:17:48,682 log 15044 18600 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:17:48,683 log 15044 18600 Not Found: /search/find-by/username
+WARNING 2020-05-28 11:17:48,684 log 15044 18600 Not Found: /search/find-by/username
+ERROR 2020-05-28 11:17:48,699 log 15044 18600 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 11:20:05,851 log 10368 2572 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:20:05,853 log 10368 2572 Not Found: /search/find-by/name
+WARNING 2020-05-28 11:20:05,854 log 10368 2572 Not Found: /search/find-by/username
+WARNING 2020-05-28 11:20:05,855 log 10368 2572 Not Found: /search/find-by/username
+ERROR 2020-05-28 11:20:05,914 log 10368 2572 Internal Server Error: /twit/1/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\twit_details.py", line 12, in twit_details
+    twit = get_objects_or_none(Tweet, id=twit_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-28 11:41:36,471 log 14520 17188 Method Not Allowed (GET): /twit/delete/1
+WARNING 2020-05-28 11:42:12,045 log 16676 2620 Method Not Allowed (GET): /twit/delete/1
+WARNING 2020-05-28 16:40:18,456 log 12884 12748 Not Found: /marshrutka/login/
+WARNING 2020-05-28 16:40:18,833 log 12884 12748 Not Found: /signup
+WARNING 2020-05-28 16:40:29,978 log 10812 2940 Not Found: /signup
+WARNING 2020-05-28 16:41:38,660 log 728 2436 Not Found: /signup
+WARNING 2020-05-28 16:42:21,905 log 3800 17636 Not Found: /signup
+WARNING 2020-05-28 16:42:44,159 log 10436 2084 Not Found: /signup
+WARNING 2020-05-28 16:43:21,887 log 5220 6488 Not Found: /signup
+WARNING 2020-05-28 16:44:15,041 log 3292 6560 Not Found: /accountssignup/
+INFO 2020-06-04 15:11:54,679 autoreload 20720 20716 Watching for file changes with StatReloader
+INFO 2020-06-04 15:11:57,251 runserver 20720 20752 HTTP GET / 200 [0.50, 127.0.0.1:65504]
+INFO 2020-06-04 15:11:57,366 runserver 20720 20752 HTTP GET /static/css/scrollBar.css 200 [0.02, 127.0.0.1:65504]
+INFO 2020-06-04 15:11:57,385 runserver 20720 20752 HTTP GET /static/bootstrap/css/bootstrap.min.css 304 [0.02, 127.0.0.1:65504]
+INFO 2020-06-04 15:11:57,389 runserver 20720 20752 HTTP GET /static/css/text.css 200 [0.03, 127.0.0.1:65509]
+INFO 2020-06-04 15:11:57,398 runserver 20720 20752 HTTP GET /static/css/icons.css 200 [0.04, 127.0.0.1:65508]
+INFO 2020-06-04 15:11:57,399 runserver 20720 20752 HTTP GET /static/css/site.css 200 [0.05, 127.0.0.1:65505]
+INFO 2020-06-04 15:11:57,400 runserver 20720 20752 HTTP GET /static/css/textarea.css 200 [0.04, 127.0.0.1:65510]
+INFO 2020-06-04 15:11:57,410 runserver 20720 20752 HTTP GET /static/js/textarea.js 304 [0.01, 127.0.0.1:65508]
+INFO 2020-06-04 15:11:57,412 runserver 20720 20752 HTTP GET /static/font-awesome/css/all.css 200 [0.05, 127.0.0.1:65511]
+INFO 2020-06-04 15:11:57,419 runserver 20720 20752 HTTP GET /static/jquery/jquery-3.5.1.min.js 200 [0.03, 127.0.0.1:65509]
+INFO 2020-06-04 15:11:57,420 runserver 20720 20752 HTTP GET /static/bootstrap/js/bootstrap.min.js 200 [0.03, 127.0.0.1:65504]
+INFO 2020-06-04 15:11:57,427 runserver 20720 20752 HTTP GET /static/js/twit.js 304 [0.02, 127.0.0.1:65508]
+INFO 2020-06-04 15:11:57,427 runserver 20720 20752 HTTP GET /static/js/autoload.js 304 [0.01, 127.0.0.1:65509]
+INFO 2020-06-04 15:11:57,442 runserver 20720 20752 HTTP GET /static/js/bookmark.js 304 [0.02, 127.0.0.1:65504]
+INFO 2020-06-04 15:11:57,442 runserver 20720 20752 HTTP GET /static/js/SetLike.js 304 [0.04, 127.0.0.1:65510]
+INFO 2020-06-04 15:11:57,472 runserver 20720 20752 HTTP GET /static/js/csrf.js 304 [0.06, 127.0.0.1:65511]
+INFO 2020-06-04 15:11:57,474 runserver 20720 20752 HTTP GET /static/js/site.js 200 [0.07, 127.0.0.1:65505]
+INFO 2020-06-04 15:11:57,489 runserver 20720 20752 HTTP GET /static/js/preloader.js 304 [0.06, 127.0.0.1:65508]
+INFO 2020-06-04 15:11:57,554 runserver 20720 20752 HTTP GET /static/font-awesome/webfonts/fa-solid-900.woff2 304 [0.01, 127.0.0.1:65511]
+INFO 2020-06-04 15:11:57,555 runserver 20720 20752 HTTP GET /static/font-awesome/webfonts/fa-regular-400.woff2 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:11:57,583 runserver 20720 20752 HTTP GET /media/userpick.webp 200 [0.03, 127.0.0.1:65510]
+INFO 2020-06-04 15:11:57,583 runserver 20720 20752 HTTP GET /static/font-awesome/webfonts/fa-brands-400.woff2 200 [0.04, 127.0.0.1:65508]
+INFO 2020-06-04 15:11:57,662 runserver 20720 20752 HTTP GET /media/favicon.ico 200 [0.03, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:08,698 runserver 20720 20752 HTTP POST /twit/create/ 200 [0.28, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:08,746 runserver 20720 20752 HTTP GET /media/tweet_images/%D0%90%D0%BD%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D1%8F_2020-05-27_215443.png 200 [0.02, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:10,447 runserver 20720 20752 HTTP POST /like/1/ 200 [0.07, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:23,923 runserver 20720 20752 HTTP GET /admin 301 [0.00, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:24,098 runserver 20720 20752 HTTP GET /admin/ 200 [0.15, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:24,159 runserver 20720 20752 HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:24,160 runserver 20720 20752 HTTP GET /static/admin/css/dashboard.css 304 [0.01, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:24,161 runserver 20720 20752 HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:24,175 runserver 20720 20752 HTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:24,222 runserver 20720 20752 HTTP GET /static/admin/img/icon-changelink.svg 304 [0.02, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:24,222 runserver 20720 20752 HTTP GET /static/admin/img/icon-addlink.svg 304 [0.02, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:24,237 runserver 20720 20752 HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.01, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:24,237 runserver 20720 20752 HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.01, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:24,238 runserver 20720 20752 HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:65511]
+WARNING 2020-06-04 15:12:24,286 log 20720 11312 Not Found: /favicon.ico
+WARNING 2020-06-04 15:12:24,299 runserver 20720 20752 HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:26,378 runserver 20720 20752 HTTP GET /admin/e_mail/mail/ 200 [0.09, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:26,459 runserver 20720 20752 HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:26,459 runserver 20720 20752 HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:65509]
+INFO 2020-06-04 15:12:26,459 runserver 20720 20752 HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:65504]
+INFO 2020-06-04 15:12:26,460 runserver 20720 20752 HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:26,460 runserver 20720 20752 HTTP GET /static/admin/css/changelists.css 304 [0.02, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:26,468 runserver 20720 20752 HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:26,469 runserver 20720 20752 HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:26,475 runserver 20720 20752 HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:65509]
+INFO 2020-06-04 15:12:26,476 runserver 20720 20752 HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:65504]
+INFO 2020-06-04 15:12:26,507 runserver 20720 20752 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:26,570 runserver 20720 20752 HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:29,605 runserver 20720 20752 HTTP GET /admin/e_mail/mail/add/ 200 [0.10, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:29,682 runserver 20720 20752 HTTP GET /static/admin/js/calendar.js 304 [0.02, 127.0.0.1:65509]
+INFO 2020-06-04 15:12:29,682 runserver 20720 20752 HTTP GET /static/admin/js/SelectFilter2.js 304 [0.02, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:29,683 runserver 20720 20752 HTTP GET /static/admin/js/SelectBox.js 304 [0.02, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:29,683 runserver 20720 20752 HTTP GET /static/admin/css/forms.css 304 [0.03, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:29,683 runserver 20720 20752 HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.02, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:29,699 runserver 20720 20752 HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:29,713 runserver 20720 20752 HTTP GET /static/admin/js/change_form.js 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:29,727 runserver 20720 20752 HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:29,728 runserver 20720 20752 HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:65504]
+INFO 2020-06-04 15:12:29,853 runserver 20720 20752 HTTP GET /static/admin/img/search.svg 304 [0.01, 127.0.0.1:65508]
+INFO 2020-06-04 15:12:29,870 runserver 20720 20752 HTTP GET /static/admin/img/icon-clock.svg 304 [0.02, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:29,870 runserver 20720 20752 HTTP GET /static/admin/img/icon-calendar.svg 304 [0.02, 127.0.0.1:65504]
+INFO 2020-06-04 15:12:29,871 runserver 20720 20752 HTTP GET /static/admin/img/selector-icons.svg 304 [0.02, 127.0.0.1:65511]
+INFO 2020-06-04 15:12:29,871 runserver 20720 20752 HTTP GET /static/admin/img/icon-unknown.svg 304 [0.02, 127.0.0.1:65510]
+INFO 2020-06-04 15:12:29,871 runserver 20720 20752 HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.02, 127.0.0.1:65509]
+INFO 2020-06-04 15:12:48,865 runserver 20720 20752 HTTP POST /admin/e_mail/mail/add/ 302 [3.02, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:49,005 runserver 20720 20752 HTTP GET /admin/e_mail/mail/ 200 [0.10, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:49,116 runserver 20720 20752 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:65505]
+INFO 2020-06-04 15:12:49,164 runserver 20720 20752 HTTP GET /static/admin/img/icon-yes.svg 304 [0.01, 127.0.0.1:65505]
+INFO 2020-06-04 15:22:47,566 autoreload 11960 14840 Watching for file changes with StatReloader
+INFO 2020-06-04 15:22:51,496 runserver 11960 14168 HTTP GET / 200 [0.17, 127.0.0.1:49205]
+INFO 2020-06-04 15:22:51,843 runserver 11960 14168 HTTP GET /media/tweet_images/%D0%90%D0%BD%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D1%8F_2020-05-27_215443.png 304 [0.01, 127.0.0.1:49205]
+INFO 2020-06-04 15:22:53,732 runserver 11960 14168 HTTP GET /admin/e_mail/mail/12/change/ 200 [0.17, 127.0.0.1:49205]
+INFO 2020-06-04 15:22:53,842 runserver 11960 14168 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49205]
+INFO 2020-06-04 15:23:05,021 runserver 11960 14168 HTTP GET /admin/e_mail/mail/ 200 [0.09, 127.0.0.1:49205]
+INFO 2020-06-04 15:26:01,967 runserver 11960 14168 HTTP GET /admin/e_mail/mail/add/ 200 [0.10, 127.0.0.1:49218]
+INFO 2020-06-04 15:26:02,077 runserver 11960 14168 HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:49218]
+INFO 2020-06-04 15:26:13,196 runserver 11960 14168 HTTP POST /admin/e_mail/mail/add/ 302 [2.67, 127.0.0.1:49218]
+INFO 2020-06-04 15:26:13,309 runserver 11960 14168 HTTP GET /admin/e_mail/mail/ 200 [0.09, 127.0.0.1:49218]
+INFO 2020-06-04 15:26:13,403 runserver 11960 14168 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49218]
+INFO 2020-06-04 15:40:42,384 autoreload 2752 10688 Watching for file changes with StatReloader
+INFO 2020-06-04 15:40:58,903 runserver 2752 13424 HTTP GET / 200 [0.15, 127.0.0.1:49423]
+INFO 2020-06-04 15:40:59,263 runserver 2752 13424 HTTP GET /media/tweet_images/%D0%90%D0%BD%D0%BD%D0%BE%D1%82%D0%B0%D1%86%D0%B8%D1%8F_2020-05-27_215443.png 304 [0.02, 127.0.0.1:49423]
+INFO 2020-06-04 15:41:02,828 runserver 2752 13424 HTTP GET /admin/e_mail/mail/add/ 200 [0.16, 127.0.0.1:49423]
+INFO 2020-06-04 15:41:02,937 runserver 2752 13424 HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49423]
+INFO 2020-06-04 15:41:13,945 runserver 2752 13424 HTTP POST /admin/e_mail/mail/add/ 302 [2.92, 127.0.0.1:49423]
+INFO 2020-06-04 15:41:14,066 runserver 2752 13424 HTTP GET /admin/e_mail/mail/ 200 [0.08, 127.0.0.1:49423]
+INFO 2020-06-04 15:41:14,284 runserver 2752 13424 HTTP GET /admin/jsi18n/ 200 [0.17, 127.0.0.1:49423]

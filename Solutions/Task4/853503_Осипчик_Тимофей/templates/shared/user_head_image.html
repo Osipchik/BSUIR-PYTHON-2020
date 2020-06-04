@@ -1,0 +1,11 @@
+{% block content  %}
+    {% if image != '' %}
+        <div class="loading">
+            <img id="profile-header-image" data-src="{{ image.url }}" class="profile-image-header">
+        </div>
+    {% else %}
+        <div >
+             <img id="profile-header-image" class="profile-image-header hide">
+        </div>
+    {% endif %}
+{% endblock %}

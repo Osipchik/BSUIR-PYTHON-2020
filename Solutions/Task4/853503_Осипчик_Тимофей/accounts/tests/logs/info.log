@@ -1,0 +1,187 @@
+WARNING 2020-05-28 15:36:01,710 log 16700 14080 Method Not Allowed (POST): /search/find-by/name
+WARNING 2020-05-28 15:36:28,242 log 15376 8296 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:39:11,781 log 8236 15108 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:40:11,241 log 12908 4940 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:40:11,242 log 12908 4940 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:42:31,501 log 7492 12112 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:44:21,580 log 15308 9420 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:48:40,850 log 8856 7600 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:49:06,897 log 15668 15680 Not Found: /search/find-by/name
+ERROR 2020-05-28 15:53:51,053 log 5076 2252 Internal Server Error: /search/find-by/name
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\search.py", line 60, in find_users_by_name
+    if form.cleaned_data['content'] is not '':
+AttributeError: 'SearchForm' object has no attribute 'cleaned_data'
+ERROR 2020-05-28 15:54:08,417 log 12508 7260 Internal Server Error: /search/find-by/name
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\search.py", line 60, in find_users_by_name
+    if form.cleaned_data['content'] is not '':
+AttributeError: 'SearchForm' object has no attribute 'cleaned_data'
+ERROR 2020-05-28 15:54:40,242 log 16200 9484 Internal Server Error: /search/find-by/name
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\search.py", line 60, in find_users_by_name
+    if form.cleaned_data['content'] is not ' ':
+AttributeError: 'SearchForm' object has no attribute 'cleaned_data'
+ERROR 2020-05-28 15:55:25,204 log 18004 14432 Internal Server Error: /search/find-by/name
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\Twitter\views\search.py", line 60, in find_users_by_name
+    if form.cleaned_data['content'] is not '':
+AttributeError: 'SearchForm' object has no attribute 'cleaned_data'
+WARNING 2020-05-28 15:55:58,048 log 8236 16188 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:57:36,642 log 12320 8332 Not Found: /search/find-by/name
+WARNING 2020-05-28 15:57:36,654 log 12320 8332 Not Found: /search/find-by/username
+WARNING 2020-05-28 16:00:35,731 log 9296 10708 Not Found: /search/find-by/name
+WARNING 2020-05-28 16:00:35,743 log 9296 10708 Not Found: /search/find-by/username
+WARNING 2020-05-28 16:00:35,755 log 9296 10708 Method Not Allowed (GET): /like/123/
+WARNING 2020-05-28 16:00:50,953 log 16932 2332 Not Found: /search/find-by/name
+WARNING 2020-05-28 16:00:50,965 log 16932 2332 Not Found: /search/find-by/username
+ERROR 2020-05-29 00:22:22,469 log 1592 16500 Internal Server Error: /accounts/profile/personalize/update-image/image/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\personalize.py", line 16, in update_user_image
+    profile.image = request.FILES['image']
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'image'
+ERROR 2020-05-29 00:22:45,106 log 1692 13064 Internal Server Error: /accounts/profile/personalize/update-image/image/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\personalize.py", line 16, in update_user_image
+    profile.image = request.FILES['image']
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'image'
+ERROR 2020-05-29 00:23:33,394 log 13572 4408 Internal Server Error: /accounts/profile/personalize/update-image/image/
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\personalize.py", line 16, in update_user_image
+    profile.image = request.FILES['image']
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'image'
+WARNING 2020-05-29 00:44:52,721 log 12472 10076 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 00:50:51,684 log 18472 872 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 00:59:48,625 log 4004 13228 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 01:11:45,166 log 804 18676 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 01:11:57,909 log 18916 14296 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 01:17:39,789 log 18444 3848 Bad Request: /accounts/profile/personalize/change-description
+WARNING 2020-05-29 01:24:03,846 log 4708 17048 Method Not Allowed (GET): /accounts/profile/follow/2
+ERROR 2020-05-29 01:24:54,549 log 19124 12700 Internal Server Error: /accounts/profile/follow/9999
+Traceback (most recent call last):
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\DEV\LAB_3_Twitter\Twitter\accounts\views\profile_view.py", line 49, in follow_view
+    user = get_objects_or_none(User, id=author_id)[0]
+  File "D:\DEV\LAB_3_Twitter\Twitter\venv\lib\site-packages\django\db\models\query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+WARNING 2020-05-29 01:27:09,872 log 14984 13360 Not Found: /accounts/profile/follow/9999
+WARNING 2020-05-29 01:27:09,879 log 14984 13360 Not Found: /accounts/profile/follow/9999
+WARNING 2020-05-29 01:27:39,049 log 10932 728 Not Found: /accounts/profile/follow/9999
+WARNING 2020-05-29 01:28:39,926 log 15660 1780 Not Found: /accounts/profile/unfollow/9999
+WARNING 2020-05-29 01:28:39,933 log 15660 1780 Not Found: /accounts/profile/unfollow/2
+WARNING 2020-05-29 01:30:00,594 log 11708 18900 Not Found: /accounts/profile/unfollow/9999
+WARNING 2020-05-29 01:30:12,428 log 18668 18524 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 01:30:12,456 log 18668 18524 Bad Request: /accounts/profile/personalize/change-description
+WARNING 2020-05-29 01:30:12,648 log 18668 18524 Not Found: /accounts/profile/follow/9999
+WARNING 2020-05-29 01:30:12,692 log 18668 18524 Not Found: /accounts/profile/unfollow/9999
+WARNING 2020-05-29 01:34:13,375 log 19252 18016 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-05-29 01:34:13,403 log 19252 18016 Bad Request: /accounts/profile/personalize/change-description
+WARNING 2020-05-29 01:34:13,597 log 19252 18016 Not Found: /accounts/profile/follow/9999
+WARNING 2020-05-29 01:34:13,642 log 19252 18016 Not Found: /accounts/profile/unfollow/9999
+WARNING 2020-06-04 15:11:43,534 log 16584 5044 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-06-04 15:11:43,589 log 16584 5044 Bad Request: /accounts/profile/personalize/change-description
+WARNING 2020-06-04 15:11:43,956 log 16584 5044 Not Found: /accounts/profile/follow/9999
+WARNING 2020-06-04 15:11:43,987 log 16584 5044 Not Found: /accounts/profile/unfollow/9999
+WARNING 2020-06-04 15:29:19,428 log 10112 4704 Bad Request: /accounts/profile/personalize/update-image/image/
+WARNING 2020-06-04 15:29:19,455 log 10112 4704 Bad Request: /accounts/profile/personalize/change-description
+WARNING 2020-06-04 15:29:19,636 log 10112 4704 Not Found: /accounts/profile/follow/9999
+WARNING 2020-06-04 15:29:19,678 log 10112 4704 Not Found: /accounts/profile/unfollow/9999
